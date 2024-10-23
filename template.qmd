@@ -1,0 +1,51 @@
+---
+title: How I rose from the dead in my spare time and so can you
+subtitle: ANZJS Quarto Template
+format:
+  anzjs-pdf:
+    keep-tex: true  
+author:
+  - name: A. J. Specktowsky
+    affiliations:
+      - name: An Organization
+        department: Department of Redundancy Department,
+        address: Great Falls
+        city: Boston
+        country: USA
+        postal-code: 54321
+      - A second affilication
+    orcid: 0000-0000-0000-0000
+    email: sm@example.org
+    url: https://example.org/
+  - name: Eliza Dealloc
+    affiliations:
+      - Another Affiliation
+abstract: |
+  This document serves to illustrate some of the main features of
+  the \LaTeX\ document class ``\texttt{anzsauth}'' which authors are
+  strongly encouraged to use when preparing papers for submission
+  to the \textit{Australian and New Zealand Journal of Statistics}.
+  The importance of clarity of exposition as well as a number of
+  issues that frequently arise in respect of the Journal's standards
+  and conventions are emphasised.  The Journal has precise requirements
+  for the format of bibliographic references and citations.  It is much
+  easier for authors to conform to these requirements if they use the
+  resources provided by \BibTeX\ and the \texttt{anzsj} bibliography
+  style.  Authors are very strongly encouraged to avail themselves
+  of these resources.  The use of \BibTeX\ syntax is illustrated.
+  This document emphasises a few of the notational conventions that
+  form an important part of the Journal's stylistic requirements.
+  A great deal more material about these requirements may be found
+  in the document ``\textit{ANZJS Style Guide for Authors}'' in the
+  file \texttt{styleGuide.pdf}.  That file is included in the zip
+  archive of material from which you obtained the document that you
+  are currently reading, i.e. \texttt{protoType.pdf}.
+keywords: [anzsauth, bibliographic references, bibtex, citations, document class, notational conventions, style guide]
+bibliography: bibliography.bib  
+---
+
+## Introduction {#sec-intro}
+
+*TODO* Create a template that demonstrates the appearance, formatting, layout, and functionality of your format. Learn more about journal formats at <https://quarto.org/docs/journals/>.
+
+
