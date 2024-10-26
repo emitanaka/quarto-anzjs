@@ -1,0 +1,59 @@
+---
+format: gfm
+---
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+
+This is a [Quarto](https://quarto.org/), template for the _Australian and New Zealand Journal of Statistics_ based on their LaTeX template in the [Author Guidelines](https://onlinelibrary.wiley.com/page/journal/1467842x/homepage/forauthors.html). The original zip file that contains the style guide and latex template is available [here](https://onlinelibrary.wiley.com/pb-assets/assets/1467842X/anzsauth-1545395150170.zip).
+
+
+## Getting started
+
+First install [Quarto](https://quarto.org/docs/get-started/). To use Quarto, see the [Quarto website](https://quarto.org/) for more information.
+
+From the Terminal run the command below. This will install the extension and create an example qmd file that you can use as a starting place for your paper.
+
+```bash
+quarto use template emitanaka/quarto-anzjs@master
+```
+
+Or if you just to add the template to your current project, you can use the following command:
+
+```bash
+quarto add emitanaka/quarto-anzjs@master
+```
+
+
+```{r}
+#| cache: true
+#| include: false
+# Create pdf and png version of template
+library(quarto)
+library(magick)
+library(fs)
+# Render template
+quarto_render(input = "template.qmd", output_format = "all")
+
+# Convert rendered PDF to PNG
+image_read_pdf("template.pdf") |>
+  image_montage(geometry = "x2000+25+35", 
+                tile = "1x1", 
+                bg = "grey92", 
+                shadow = TRUE) |>
+  image_convert(format = "png") |>
+  image_write("examples/template-pdf.png")
+# Move pdf to examples folder
+file_move("template.pdf", "examples/template.pdf")
+file_move("template.tex", "examples/template.tex")
+```
+
+
+[![](examples/template-pdf.png)](examples/template.pdf)
+
+
+## ANZJS Style Guide
+
+Be sure to read the [ANZJS Style Guide](styleGuide.pdf) for more information on how to format your paper. Always check the [Author Guidelines](https://onlinelibrary.wiley.com/page/journal/1467842x/homepage/forauthors.html) on the ANZJS website for the latest information.
+
+
