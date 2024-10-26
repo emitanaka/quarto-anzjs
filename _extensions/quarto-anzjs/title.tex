@@ -1,10 +1,18 @@
+\def\firstletters{\bgroup \catcode`-=10 \catcode`(=10 \filA}
+\def\filA#1{\filB#1 {\end} }
+\def\filB#1#2 {\ifx\end#1\egroup \else#1 \expandafter\filB\fi} 
 
-
+\runningheads{
 $if(shorttitle)$
-\runningheads{$shorttitle$}{$for(authors)$$it.name.literal/uppercase$$sep$, $endfor$}
+$shorttitle$
 $else$
-\runningheads{$title$}{$for(authors)$$it.name.literal/uppercase$$sep$, $endfor$}
+$title$
 $endif$
+}{
+$for(authors/allbutlast)$\firstletters{$it.name.given/uppercase$}$it.name.family/uppercase$$sep$, $endfor$,
+$if(authors/allbutlast)$ AND $endif$
+$for(authors/last)$\firstletters{$it.name.given/uppercase$}$it.name.family/uppercase$$endfor$ 
+}
 
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
