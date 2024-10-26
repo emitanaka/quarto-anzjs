@@ -8,13 +8,13 @@ This is a Quarto template for the _Australian and New Zealand Journal of Statist
 To use the template, you can the following command from the Terminal:
 
 ```bash
-quarto use template emitanaka/quarto-anzjs
+quarto use template emitanaka/quarto-anzjs@master
 ```
 
 Or if you just to add the template to your current project, you can use the following command:
 
 ```bash
-quarto add emitanaka/quarto-anzjs
+quarto add emitanaka/quarto-anzjs@master
 ```
 
 ## Quarto
