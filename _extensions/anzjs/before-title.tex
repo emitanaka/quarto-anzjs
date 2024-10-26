@@ -3,13 +3,15 @@
 \usepackage{grffile}
 \usepackage{lineno}
 \usepackage[UKenglish]{isodate}
-
+\usepackage{xstring}
+\def\getYear#1{\StrLeft{#1}{4}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % The year in the following may need to be updated!
-\def\volumeyear{2024}
+\def\volumeyear{\getYear{$date$}}
 
 % The following command ("obviously") effects line numbering
 % of the document.
 \linenumbers
+

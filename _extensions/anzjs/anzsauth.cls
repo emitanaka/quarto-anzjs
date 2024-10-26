@@ -27,13 +27,13 @@
 % prepare an article for publication in the Australian & New Zealand
 % Journal of Statistics published by Wiley Publishing Asia Pty Ltd.
 %
-% This class file is provided on an `as is'  basis, without warranties of any
-% kind, either expressed or implied, including but not limited to warranties of
-% title, or  implied warranties of merchantablility or fitness for  a
-% particular purpose. There will be no duty on the author[s] of the software
-% or Wiley Publishing Asia Pty Ltd. to correct any errors or defects in the software.
-% Any statutory rights you may have remain unaffected by your acceptance of
-% these rules of use.
+%This class file is provided on an `as is'  basis, without warranties of any
+%kind, either expressed or implied, including but not limited to warranties of
+%title, or  implied warranties of merchantablility or fitness for  a
+%particular purpose. There will be no duty on the author[s] of the software
+%or Wiley Publishing Asia Pty Ltd. to correct any errors or defects in the software.
+%Any statutory rights you may have remain unaffected by your acceptance of
+%these rules of use.
 %---------------------------------------------------------------------------
 %
 % Origonal version created by Alistair Smith, Sunrise Setting Ltd, 19 April 2013
@@ -92,9 +92,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Added by Rolf 29/10/2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\def\utilde#1{\mathord{\vtop{\ialign{##\crcr
-%$\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern1.5pt\nointerlineskip}
-%$\hfil\tilde{}\hfil$\crcr\noalign{\kern1.5pt}}}}}
+\def\utilde#1{\mathord{\vtop{\ialign{##\crcr
+$\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern1.5pt\nointerlineskip}
+$\hfil\tilde{}\hfil$\crcr\noalign{\kern1.5pt}}}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}

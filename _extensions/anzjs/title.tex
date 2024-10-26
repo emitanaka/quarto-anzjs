@@ -1,0 +1,62 @@
+
+
+$if(shorttitle)$
+\runningheads{$shorttitle$}{$for(authors)$$it.name.literal/uppercase$$sep$, $endfor$}
+$else$
+\runningheads{$title$}{$for(authors)$$it.name.literal/uppercase$$sep$, $endfor$}
+$endif$
+
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
+$endif$
+
+\author{
+$if(by-author/allbutlast)$
+$for(by-author/allbutlast)$
+$by-author.name.literal$\addressnum{$for(by-author.affiliations)$$it.number$$sep$, $endfor$}$sep$,
+$endfor$
+ and 
+$for(by-author/last)$
+$by-author.name.literal$
+\addressnum{$for(by-author.affiliations)$$it.number$$sep$, $endfor$}$if(by-author.attributes.corresponding)$\corrauth$endif$
+$endfor$
+$else$
+$for(authors)$
+$it.name.literal$
+$endfor$
+$endif$
+}
+\affiliation{
+$for(affiliations/allbutlast)$
+$it.name$$sep$, 
+$endfor$
+ and 
+$for(affiliations/last)$
+$it.name$
+$endfor$
+}
+
+\address{
+$if(authors/allbutlast)$
+$for(affiliations)$
+\addressnum{$it.number$} $if(it.department)$$it.department$, $endif$$it.name$$if(it.address)$, $it.address$$endif$$sep$\break
+$endfor$
+$else$
+$for(affiliations)$
+$it.name$$sep$\break
+$endfor$
+$endif$\\
+\hspace*{1ex} Email: $for(authors)$$if(authors.attributes.corresponding)$\texttt{$authors.email$}$endif$$sep$ $endfor$
+}
+
+
+\date{$date$}
