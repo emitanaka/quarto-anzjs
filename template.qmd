@@ -35,7 +35,7 @@ author:
         address: 46 Sullivan's Creek Road, ACT 2600, Australia
 abstract: |
   This document serves to illustrate some of the main features of
-  the LaTeX document class `anzsauth` which authors are
+  the \LaTeX{} document class `anzsauth` which authors are
   strongly encouraged to use when preparing papers for submission
   to the _Australian and New Zealand Journal of Statistics_.
   The importance of clarity of exposition as well as a number of
@@ -43,9 +43,9 @@ abstract: |
   and conventions are emphasised.  The Journal has precise requirements
   for the format of bibliographic references and citations.  It is much
   easier for authors to conform to these requirements if they use the
-  resources provided by BibTeX and the `anzsj` bibliography
+  resources provided by \BibTeX{} and the `anzsj` bibliography
   style.  Authors are very strongly encouraged to avail themselves
-  of these resources.  The use of BibTeX syntax is illustrated.
+  of these resources.  The use of \BibTeX{} syntax is illustrated.
   This document emphasises a few of the notational conventions that
   form an important part of the Journal's stylistic requirements.
   A great deal more material about these requirements may be found
@@ -53,13 +53,13 @@ abstract: |
   file `styleGuide.pdf`.  That file is included in the zip
   archive of material from which you obtained the document that you
   are currently reading, i.e. `protoType.pdf`.
-acknowledgement: |
+acknowledgement: >
   The author (singular!) --- and he is indeed singular ---
   gratefully acknowledges input, advice, feedback and encouragement
   from Alan Welsh, James Curran, Michael Martin, Martin Hazelton,
   Petra Graham, Chris Triggs, Neville Bartlett, David Scott and
   Ken Russell.  Any remaining errors or omissions are all their
-  fault.
+  fault.  
   Opinions and attitudes expressed in this document,
   which are not explicitly designated as Journal policy, are those of
   the author and are _not_ necessarily endorsed by the Journal,
@@ -81,15 +81,8 @@ class file, `anzsauth.cls`, is contained in the zip archive
 `anzsauth.zip` which may be obtained from
 
 
+<http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291467-842X>
 
-
-
-%==+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===
-{\small
-\url{http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291467-842X}
-}
-%==+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===
-\noindent
 by clicking on "Author Guidelines", scrolling down to "Latex
 Template" and then clicking on the appropriate link.  It is also
 possible to obtain this zip archive by visiting your ScholarOne
@@ -98,7 +91,7 @@ point:
 
 > $\bullet$ Before submitting or revising your manuscript, please download the zip archive anzsauth.zip by clicking \underline{here}.
 
-Clicking on "~~here~~" duly produces the desired zip
+Clicking on "here" duly produces the desired zip
 archive.  (You may --- in fact probably!!! --- have already done
 this to obtain the document that you are currently reading.)
 
@@ -152,19 +145,19 @@ See `protoType.tex`.
 
 A primary requirement that the Journal imposes is that papers must
 be written lucidly and in clear and grammatically correct English.
-Consequently @sec:clarExpos is devoted to issues that
+Consequently @sec-clarExpos is devoted to issues that
 arise in respect of good exposition.  Other requirements include
 proper formatting of the title page.  This is done _far_
 more easily if you make use of the resources provided by the
 `anzsauth` document class than if you attempt to do the
-formatting "by hand".  (See @sec:titPage).
+formatting "by hand".  (See @sec-titPage).
 
 The Journal insists that citations should be formed correctly and in
 accordance with its conventions.  Likewise the list of references
 must have the correct structure.  Again these requirements are
 _greatly_ facilitated if you make use of the resources provided
 (by means of \BibTeX\ and the `anzsj` bibliography style).
-These matters are discussed in @sec:bibRef.
+These matters are discussed in @sec-bibRef.
 
 Although this is _not_ handled in an automatic manner,
 it is important to adhere to the Journal's notation conventions.
@@ -173,19 +166,19 @@ Most of the discussion of notational conventions has been placed in
 file `styleGuide.pdf` referred to above.
 
 Some of the more salient points about notation are dealt with
-in @sec:noteConv in the current document (thus
+in @sec-noteConv in the current document (thus
 overlapping a bit with the style guide).  Displayed equations
-and their numbering are dealt with in @sec:eqnNumb.
+and their numbering are dealt with in @sec-eqnNumb.
 In this section some cogent advice is given about handling arrays of
 equations.  Issues that arise in respect of the inclusion of figures
-and tables in a paper are discussed in @sec:figAndTab.
-In @sec:crossref some remarks are made, and avuncular
-advice given, about cross referencing.  @sec:append
+and tables in a paper are discussed in @sec-figAndTab.
+In @sec-crossref some remarks are made, and avuncular
+advice given, about cross referencing.  @sec-append
 presents the Journal's policy about how appendices should be headed.
 It also describes the `Appendix` and `uniqueAppendix`
 environments that are now provided by the `anzsauth` document
 class and that make it easy for you to make sure that your appendices
-are headed in the correct manner.  @sec:prepDocs
+are headed in the correct manner.  @sec-prepDocs
 provides a little bit of advice about preparing and processing the
 "source files" that underlie the use of \LaTeX.
 
@@ -193,24 +186,23 @@ It has been pointed out to me that some authors need some
 guidance as to what to do with the files `anzsauth.cls` and
 `anzsj.bst` which are to be found in the `anzsauth.zip`
 zip archive.  A little bit of such guidance is given in
-@sec:wheretoshove.
+@sec-wheretoshove.
 
 Various exhortations are reiterated, and some advice about
 how to make use of `protoType.tex` is given in
-@sec:concComm.  In this last Section you are
+@sec-concComm.  In this last Section you are
 additionally exhorted to create a _tidy_ \LaTeX\ source file.
 
 % The following illustrates the use of `\citeyear{}` and `\citep{}`.
 Readers might be interested to know about some of the "literary"
 allusions found in this document.  The title of this paper
 is actually that of a (fictitious, of course) book that is
-referred to in the (real) book _A Maze of Death_ by Philip
-K. Dick (\citeyear{Dick1971}).  The aforesaid title exemplifies a
+referred to in the (real) book _A Maze of Death_ by @Dick1971.  The aforesaid title exemplifies a
 particularly egregious error in English usage that can be described
 as "faulty parallelism".  It is an example of the sort of thing
 that one _shouldn't do_!  Philip K. Dick is perhaps best
 known as the author of _Do Androids Dream of Electric Sheep?_
-\citep{Dick1968} upon which the movie _Blade Runner} (starring
+[@Dick1968] upon which the movie _Blade Runner_ (starring
 Harrison Ford) was based.  The fictitious book referred to above was
 putatively written by one A. J. Specktowsky who is given the honour
 of being first author of the current paper.  Philip K. Dick himself
@@ -227,7 +219,7 @@ Hitch Hiker's Guide to the Galaxy_ [@Adams1979].  The address
 of the Complaints Division of the Sirius Cybernetics Corporation
 refers back, for no particularly good reason, to [@Firesign1970].
 
-# Clarity of exposition {#sec:clarExpos}
+# Clarity of exposition {#sec-clarExpos}
 
 Obviously the fundamental consideration in respect of assessing a
 paper's quality is its actual content: its correctness and its value
@@ -347,7 +339,7 @@ Authors must be aware that there is a _cost_ associated with
 this service, and this cost must be borne by the author(s) of the
 paper in question.
 
-# Formatting the title page {#sec:titPage}
+# Formatting the title page {#sec-titPage}
 
 Do not try to create the list of authors, their affiliations
 and their addresses by hand.  This is difficult, kludgy and
@@ -384,19 +376,19 @@ By learning to use these resources you will in the long
 run save a _great_ deal of time and dramatically reduce the
 effort that you expend.
 
-## Bibliographic references {#sec:bibRef}
+## Bibliographic references {#sec-bibRef}
 
-## The Journal's citation rules {#sec:citeRules}
+## The Journal's citation rules {#sec-citeRules}
 
 The Journal (for the sake of consistency; see
-@sec:noteConv) imposes a number of strict rules
+@sec-noteConv) imposes a number of strict rules
 or conventions on the way that citations are formed.  Authors
 _must_ follow these conventions.  Just as you are advised not
 to format the title page "by hand", you are strongly encouraged not
 to produce your citations and your list of references in an ad hoc
 one-by-one manner.  Instead use the (very well designed) tools that
 are available for the purpose.  That is, make use of \BibTeX\ and
-the `anzsj` bibliography style (see @sec:useBib).
+the `anzsj` bibliography style (see @sec-useBib).
 If you do so, then (most of) the Journal's required conventions will
 be followed automatically, thereby saving you a great deal of work
 and a great many headaches.
@@ -461,7 +453,7 @@ text, tables or figures must be listed in the reference list. A
 work must _not_ appear in the reference list _unless_
 it is cited in the text.
 
-# Using \BibTeX\ {#sec:useBib}
+# Using \BibTeX\ {#sec-useBib}
 
 Authors are **_STRONGLY_** encouraged to make use of
 the resources provided by \BibTeX\ in preparing their lists of references
@@ -511,11 +503,11 @@ extension) of the name of your bibliographic information file.
 E.g. in preparing the current document I used the line
 `\bibliography{protoRefs}`.
 
-## Citing references {#sec:citRef}
+## Citing references {#sec-citRef}
 
 Cite references by using `\cite{...}` and variants
 thereof.  Some discussion of the possible variants is to be
-found in @sec:citeVar.  The `...` ellipsis
+found in @sec-citeVar.  The `...` ellipsis
 in `\cite{...}` represents the identifier for the item
 being cited.  If you (sensibly) use \BibTeX, the identifier
 is provided in the first line of the bibliographic information
@@ -523,9 +515,11 @@ about the item being cited.  For example _The_ \LaTeX\
 _Companion_ referred to above was cited in this document
 via `\cite{MittelbachGoossens2004}`.  The relevant item in
 `protoRefs.bib` begins
-\begin{verbatim}
+
+```
     @book{MittelbachGoossens2004,
-\end{verbatim}
+```
+
 If you do not use \BibTeX, then the identifier
 is given as the "`cite_key`" for the appropriate item
 in the list of references following `\begin{thebibliography}{...}`
@@ -542,7 +536,7 @@ published in 1984, I use the identifier `NurkEtAl1984`.
 I emphasise that this is just my personal convention that I have
 found useful; you are under no obligation to follow it.
 
-## Variants of the basic citation command {#sec:citeVar}
+## Variants of the basic citation command {#sec-citeVar}
 
 In addition to the "usual" citation command "`\cite`"
 there are a number of alternative citation commands that can be used
@@ -588,9 +582,9 @@ in a line of text.  Well, I hear you cry, doesn't just plain
 `\cite{...}` do that?  Yes it does, _mostly_.  In
 "simple" usage `\citet{...}` and `\cite{...}` produce
 exactly the same result.  However, if one supplies the optional
-first argument to these commands (see @sec:locPrecise)
+first argument to these commands (see @sec-locPrecise)
 the results produced are different in an important way.  We defer
-giving an example to @sec:locPrecise.
+giving an example to @sec-locPrecise.
 
 The `\citealt{...}` variant basically has the effect of removing
 the parentheses from around the year (or from around the year and
@@ -598,9 +592,9 @@ the parentheses from around the year (or from around the year and
 produces "\cite{Coyote2010}" with `\citealt{Coyote2010}` which
 produces "\citealt{Coyote2010}".  An example of the use of
 `\citealt`  which involves its "optional first argument"
-is given in @sec:locPrecise.
+is given in @sec-locPrecise.
 
-## Locating references precisely {#sec:locPrecise}
+## Locating references precisely {#sec-locPrecise}
 
 I commence this section with a desideratum, or a plea, rather
 than a rule as such: Where you have referred to a book, or even
@@ -622,13 +616,13 @@ the appropriate form of the citation referred to above.
 This example produces (as you can see) a result entirely enclosed
 in parentheses.  Suppose you want to say "See for instance
 \citet[Section 2.4]{MittelbachGoossens2004} for additional
-commentary."  As foreshadowed in @sec:citeVar, to
+commentary."  As foreshadowed in @sec-citeVar, to
 achieve this effect you can invoke the command
 `\citet[Section 2.4]{MittelbachGoossens2004}`.  Another
 possibility, which gets rid of parentheses completely, is to use
 `\citealt[Section 2.4]{MittelbachGoossens2004}`.  (This is
 the example of the use of `\citealt` with an optional first
-argument, as promised in @sec:citeVar.)  Use of this
+argument, as promised in @sec-citeVar.)  Use of this
 command would serve to produce "See for instance \citealt[Section
 2.4]{MittelbachGoossens2004} for additional commentary."
 
@@ -649,13 +643,13 @@ need to take explicit cognizance of this convention:
 
 - For papers with three or fewer authors, all authors' names
 must be given in a citation.  E.g. a paper with authors Fred Nurk,
-Melvin Mingdinkler and Hoo Hee, cited via `\cite{NurkEtAl1984}`,
-would yield "\cite{NurkEtAl1984}".
+Melvin Mingdinkler and Hoo Hee, cited via `@NurkEtAl1984`,
+would yield "@NurkEtAl1984".
 - For papers with four or more authors, only the first
 author's name, followed by "et al." should be given in a citation.
 E.g. a paper with authors D. Trump, M. Rubio, T. Cruz, J. Bush, J. Kasich
-and B. Carson, cited via `\cite{TrumpEtAl2021}` 
-would yield "\cite{TrumpEtAl2021}". 
+and B. Carson, cited via `@TrumpEtAl2021` 
+would yield "@TrumpEtAl2021". 
 
 
 This is a **change of policy** from what was previously stated
@@ -669,7 +663,7 @@ The adjustment provides a simpler and "cleaner" protocol, achieves
 an admirable consistency between guidelines and actual practice
 and makes life a lot simpler for everyone.
 
-## Notational conventions {#sec:noteConv}
+## Notational conventions {#sec-noteConv}
 
 It may seem dogmatic, but the Journal has some strict rules
 about notational conventions that must be followed.  The reason
@@ -682,7 +676,7 @@ must follow it.
 
 A few of the more important examples of these conventions are
 listed below.  Many others are given in the document "_ANZJS_
-Style Guide for Authors" as mentioned in @sec:intro.
+Style Guide for Authors" as mentioned in @sec-intro.
 
 1. The transpose operator:  This must be represented as a
 sans-serif $\top$, which is most easily rendered in \LaTeX\
@@ -740,7 +734,7 @@ construct a convenient "shorthand" that will allow you to produce
 notation conforming to the Journal's requirements using a minimal
 number of keystrokes.
 
-## Equation numbering {#sec:eqnNumb}
+## Equation numbering {#sec-eqnNumb}
 
 An equation should be given a number **_ONLY IF_**
 if it is referred to elsewhere in the paper.
@@ -774,20 +768,19 @@ equations.  To suppress equation numbers you can use the
 `\nonumber` command with `align`, but you get a sexier
 result if you use `split` inside an equation environment.
 Examples:
-\begin{equation}
+$$
 \E \left (\sum_i h(x_i,\bX \setminus \{x_i\}) \right )
 = \E \left ( \int_W h(u,\bX) \lambda(u,\bX) \; du \right )
-\label{eq:GNZ}
-\end{equation}
+$$ {#eq-GNZ}
 and
-\begin{equation}
-\begin{split}
+
+$$\begin{split}
 \alpha \beta &= \bar{x} \\
 \alpha \beta^2 &= s^2 \;\; .
 \end{split}
-\label{eq:gammaMM}
-\end{equation}
-Note how the label (i.e. "(\ref{eq:gammaMM})") is vertically
+$$ {#eq-gammaMM}
+
+Note how the label (i.e. "([-@eq-gammaMM])") is vertically
 centred with respect to the array of equations.  See the \LaTeX\
 source for the foregoing example in the file `protoType.tex`
 for guidance as to how all this is done.
@@ -800,7 +793,7 @@ in the appendices if any.  (I.e. they should _not_ be numbered
 \LaTeX.  As long as you do not take any overt action to mess it up,
 you will get the appropriate style in your document.
 
-## Figures and tables {#sec:figAndTab}
+## Figures and tables {#sec-figAndTab}
 
 % Multipanel figures in single figure files.
 Figures and tables often cause problems with the processing
@@ -831,20 +824,16 @@ down to making use of the `\par(mfrow=c(n1,n2))` command
 before issuing the `plot()` commands that produce the
 graphical displays in each panel.  (In the foregoing, `n1`
 and `n2` represent the dimensions of the array of panels.
-In the example shown in Figure~\ref{fig:ltdb}, `n1` and
+In the example shown in @fig-ltdb, `n1` and
 `n2` are both equal to 2.)
 
-\begin{figure}[htp]
-\centering
-\makebox{\includegraphics[width=0.95\textwidth]{ltdbFigure}}
-\caption{\label{fig:ltdb}
-Characteristics of the Lesser Tasmanian Drop Bear (farkling
+![Characteristics of the Lesser Tasmanian Drop Bear (farkling
 fraction, intracranial perspicacity and serendipity all in
 furlongs per fortnight) plotted against body mass (kilograms).
 The observations were made on samples obtained at four locations
 in Tasmania. Plotted points represent the raw observed values;
-plotted lines represent non-parametric fits to the raw data.}
-\end{figure}
+plotted lines represent non-parametric fits to the raw data.](ltdbFigure){#fig-ltdb}
+
 
 % Distinguishing line types and point types.
 Another important issue is making sure that line types and
@@ -861,7 +850,7 @@ in the printing process usually look awful! Consequently the Journal
 does not countenance this practice.)  In particular, lines in
 different categories should be distinguished by _line type_
 --- solid, dashed, dotted \ldots, and not by colour.  A modest
-example is given in Figure~\ref{fig:ltdb}.  Sometimes it is useful,
+example is given in @fig-ltdb.  Sometimes it is useful,
 or perhaps even necessary, to distinguish categories by means of
 line _thickness_ but proceeding in this way requires a great
 deal of care.
@@ -889,28 +878,23 @@ to re-design your table accordingly.  Possibilities for effecting the
 re-design include eliminating some of the "information", splitting
 the table into two or more smaller tables and putting all or part
 of the table into the online supplementary material.  An example
-of a reasonably perspicuous table is given in Table~\ref{tab:ltdb}.
-\begin{table}[htp]
-\caption{\label{tab:ltdb}
-A load of dingoes' kidneys in respect
-of characteristics of the Lesser Tasmanian Drop Bear.  Standard
-deviations are given in parentheses after the mean values.}
-\centering
-\begin{tabular}{|l|r|r|r|r|} \hline
-Location & Body mass (kg.) & Farkling & Intracranial & Serendipity \\ 
-         &                 & fraction & perspicacity &             \\ \hline
-  Port Arthur &  3.95 ( 2.40) & 10.14 ( 2.43) &  9.91 ( 1.99) &  9.81 ( 2.24) \\ 
-  Melaleuca   &  4.55 ( 2.41) & 10.48 ( 3.51) & 10.83 ( 2.94) & 10.54 ( 3.30) \\ 
-  Wynyard     &  3.87 ( 2.70) &  9.51 ( 2.20) &  9.40 ( 2.44) &  9.50 ( 2.23) \\ 
-  Bicheno     &  4.16 ( 2.41) & 10.46 ( 2.44) & 10.44 ( 2.64) & 10.20 ( 2.86) \\ 
-   \hline
-\end{tabular}
-\end{table}
+of a reasonably perspicuous table is given in @tbl-ltdb.
+
+Location | Body mass (kg.) | Farkling fraction | Intracranial perspicacity | Serendipity 
+-----------|------------:|---------------:|---------------:|------------:
+Port Arthur |  3.95 ( 2.40) | 10.14 ( 2.43) |  9.91 ( 1.99) |  9.81 ( 2.24) 
+Melaleuca   |  4.55 ( 2.41) | 10.48 ( 3.51) | 10.83 ( 2.94) | 10.54 ( 3.30) 
+Wynyard     |  3.87 ( 2.70) |  9.51 ( 2.20) |  9.40 ( 2.44) |  9.50 ( 2.23)  
+Bicheno     |  4.16 ( 2.41) | 10.46 ( 2.44) | 10.44 ( 2.64) | 10.20 ( 2.86)  
+
+: A load of dingoes' kidneys in respect of characteristics of the Lesser Tasmanian Drop Bear.  Standard deviations are given in parentheses after the mean values. {#tbl-ltdb}
+
+
 As stated in the "_ANZJS_ Style Guide for Authors"
 captions for tables and figures should be left-justified and not
 centred unless the text of the caption fits on a single line.
 However one-line captions should be centred.  For instance if the
-caption of Table~\ref{tab:ltdb} were simply "Dingoes' kidneys",
+caption of @tbl-ltdb were simply "Dingoes' kidneys",
 then centring would be preferable.  When the `anzsauth`
 document class is used, captions are automatically centred if
 the caption fits on a single line.  (Note that the document
@@ -926,7 +910,7 @@ at the very least be something like "see Figure~17".  If there
 is no such reference, then the corresponding table or figure must
 not be included in the paper.
 
-# Cross referencing {#sec:crossref}
+# Cross referencing {#sec-crossref}
 
 A facility provided by \LaTeX\ that tends to be underused in
 submissions to the Journal is automated cross-referencing as provided
@@ -937,22 +921,22 @@ It seems to me to be a good idea to give a label to each section and
 subsection, as you are composing it, even if you are not sure you
 will be referring to it in other sections.  (There is no _harm_
 in inserting a label.)  If you assign labels to sections then you
-can easily invite the reader to "see @sec:figAndTab"
+can easily invite the reader to "see @sec-figAndTab"
 (as I am about to do below!).  Likewise it is a good idea to give
-each figure and table (see @sec:figAndTab) a label so
+each figure and table (see @sec-figAndTab) a label so
 as to be able to refer to it via the `\ref{...}`  command.
 
 Only displayed equations that are _actually referred to_
-should be numbered (see @sec:eqnNumb).  If the equation
+should be numbered (see @sec-eqnNumb).  If the equation
 _is_ referred to, then of course you should give it a label so
 that you _can_ refer to it easily.
 
 My personal practice is to label sections and subsections with labels
-of the form `sec:string`, e.g. "`\label{sec:intro}`".
+of the form `sec-string`, e.g. "`\label{sec-intro}`".
 Similarly I form such labels for figures and tables
 as `fig:string` or `tab:string` (e.g.
-`\label{fig:ltdb}` or `\label{tab:ltdb}`) and labels
-for equations as `eq:string` (e.g. `\label{eq:GNZ}`).
+`\label{fig-ltdb}` or `\label{tbl-ltdb}`) and labels
+for equations as `eq:string` (e.g. `#eq-GNZ}`).
 I find this practice convenient, but you are of course under no
 obligation to follow it.
 
@@ -969,7 +953,7 @@ course) and let \LaTeX\ handle the assignment of numbers!  If you
 insist on using labels like unto "`Figure1`",
 then take great care to make sure that the result is correct.
 
-# Appendices {#sec:append}
+# Appendices {#sec-append}
 
 Journal policy is that if there is a single appendix to your document
 it should be headed simply '**Appendix**' (i.e. there should
@@ -1010,9 +994,9 @@ not as I do!
 The text constituting the illustration of `uniqueAppendix`
 consists of a recapitulation of the foregoing note.
 
-# Preparing \LaTeX\ and \BibTeX\ documents {#sec:prepDocs}
+# Preparing \LaTeX\ and \BibTeX\ documents {#sec-prepDocs}
 
-## Editing \LaTeX\ source files
+## Editing \LaTeX\ source files {#sec-editors}
 
 There are a number of approaches to preparing your `*.tex`
 and `*.bib` files. A primary consideration is that you should
@@ -1049,7 +1033,7 @@ Windows\texttrademark, based on `MiKTeX`", "which adds
 the `TeXstudio` front end to MiKTeX".  Some authors may
 find it helpful.
 
-## Processing source files {#sec:procBib}
+## Processing source files {#sec-procBib}
 
 One advantage of using specialised \LaTeX{} editors is the ease of
 processing ("compiling") source files, particularly in respect of
@@ -1059,7 +1043,7 @@ a single mouse click when `TeXstudio`, for example, is used.
 If you use a "general" text editor and process the source
 of your document by means of command line instructions, the procedure
 requires more steps.  To compile a document which uses the \BibTeX\
-protocols described in @sec:useBib, you need to run
+protocols described in @sec-useBib, you need to run
 \LaTeX\ on the document, then run \BibTeX, then run \LaTeX\ again
 (possibly several times) until it stops complaining that labels
 may have changed.  Something like:
@@ -1089,7 +1073,7 @@ learning period, the processing procedure all goes very smoothly.
 Try it. It really does make life a lot easier and saves a lot of
 time and errors. Once you get used to it you'll never look back.
 
-# What to do with `anzsauth.cls` and `anzsj.bst`? {#sec:wheretoshove}
+# What to do with `anzsauth.cls` and `anzsj.bst`? {#sec-wheretoshove}
 
 I have been told that some authors don't know what to do with the
 files (to be found in `anzsauth.zip`) referred to in the
@@ -1127,22 +1111,25 @@ is possible that Google\texttrademark\ will help.
 
 On Mac OSX\texttrademark\ systems you should (apparently)
 put `anzsauth.cls` in a directory
-\begin{verbatim}
+
+```
     ~/Library/texmf/tex/latex/anzsauth
-\end{verbatim}
-and put `anzsj.bst} in
-\begin{verbatim}
+```
+
+and put `anzsj.bst` in
+
+```
     ~/Library/texmf/bibtex/bst/anzsj
-\end{verbatim}
-where "`~!" means your home directory.  (Of course!)
+```
+where "`~`" means your home directory.  (Of course!)
 Take the foregoing advice with a grain of salt --- I don't use
 Mac OSX\texttrademark\ and I have not tested the advice that
 I have given.
 
 As regards Windows\texttrademark\ systems, I can't help you at
-all.  I don't _do} Windows\texttrademark!
+all.  I don't _do_ Windows\texttrademark!
 
-# Concluding comments {#sec:concComm}
+# Concluding comments {#sec-concComm}
 
 This document contains guidance on how to prepare a paper for
 submission to _ANZJS_ by making use of the `anzsauth}
@@ -1240,7 +1227,9 @@ actually have anything to say. \lipsum[3]
 % here, since there are actually multiple appendices.  But, hey,
 % what can you do?  (If you want to illustrate the use of both
 % environments in a single document.)
+
 \begin{uniqueAppendix}
+
 This is what you should get if you had only *one* appendix.
 Since this document has several appendices (four, actually) the
 use of the `uniqueAppendix` environment is completely
@@ -1255,6 +1244,7 @@ inappropriate example of the use of `uniqueAppendix`.
 I reiterate:  Use the `uniqueAppendix` environment if there is
 only one appendix to your document.  Use the `Appendix`
 environment if there are two or more appendices to your document.
+
 \end{uniqueAppendix}
 
 

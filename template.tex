@@ -39,13 +39,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\ifLuaTeX
-  \usepackage{luacolor}
-  \usepackage[soul]{lua-ul}
-\else
-  \usepackage{soul}
-  
-\fi
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -159,6 +152,8 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\usepackage[]{natbib}
+\bibliographystyle{anzsj}
 \usepackage{bookmark}
 
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -238,7 +233,7 @@ National University, 46 Sullivan's Creek Road, ACT 2600, Australia\\
 
 \begin{abstract}
 This document serves to illustrate some of the main features of the
-LaTeX document class \texttt{anzsauth} which authors are strongly
+\LaTeX{} document class \texttt{anzsauth} which authors are strongly
 encouraged to use when preparing papers for submission to the
 \emph{Australian and New Zealand Journal of Statistics}. The importance
 of clarity of exposition as well as a number of issues that frequently
@@ -246,9 +241,9 @@ arise in respect of the Journal's standards and conventions are
 emphasised. The Journal has precise requirements for the format of
 bibliographic references and citations. It is much easier for authors to
 conform to these requirements if they use the resources provided by
-BibTeX and the \texttt{anzsj} bibliography style. Authors are very
+\BibTeX{} and the \texttt{anzsj} bibliography style. Authors are very
 strongly encouraged to avail themselves of these resources. The use of
-BibTeX syntax is illustrated. This document emphasises a few of the
+\BibTeX{} syntax is illustrated. This document emphasises a few of the
 notational conventions that form an important part of the Journal's
 stylistic requirements. A great deal more material about these
 requirements may be found in the document ``\emph{ANZJS Style Guide for
@@ -283,13 +278,10 @@ conforming to the Journal's requirements with a minimum of effort. The
 relevant document class file, \texttt{anzsauth.cls}, is contained in the
 zip archive \texttt{anzsauth.zip} which may be obtained from
 
-\%==+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===
-\{\small
-\url{http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291467-842X}%28ISSN%291467-842X}%291467-842X}%28ISSN%291467-842X}%291467-842X
-\}
-\%==+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===+===
-\noindent by clicking on ``Author Guidelines'', scrolling down to
-``Latex Template'' and then clicking on the appropriate link. It is also
+\url{http://onlinelibrary.wiley.com/journal/10.1111/\%28ISSN\%291467-842X}
+
+by clicking on ``Author Guidelines'', scrolling down to ``Latex
+Template'' and then clicking on the appropriate link. It is also
 possible to obtain this zip archive by visiting your ScholarOne ``Author
 Centre'' (``Start New Submission'') and noting the bullet point:
 
@@ -298,9 +290,9 @@ Centre'' (``Start New Submission'') and noting the bullet point:
 download the zip archive anzsauth.zip by clicking \underline{here}.
 \end{quote}
 
-Clicking on ``\st{here}'' duly produces the desired zip archive. (You
-may --- in fact probably!!! --- have already done this to obtain the
-document that you are currently reading.)
+Clicking on ``here'' duly produces the desired zip archive. (You may ---
+in fact probably!!! --- have already done this to obtain the document
+that you are currently reading.)
 
 In addition to the document class file referred to above, and
 \texttt{protoType.pdf}, the document that you are reading, the zip
@@ -336,10 +328,10 @@ document. Appropriate adjustments to numbering, cross-referencing, and
 the like are handled automatically. There are many resources available
 to help beginning (and not-so-beginning) users of \LaTeX. For instance
 you will find useful information and guidance in the books by
-(\textbf{KopkaDaly2003?}), (\textbf{Lamport1994?}) and
-(\textbf{MittelbachGoossens2004?}). (Of course (\textbf{Lamport1994?})
-is the definitive source of information since (\textbf{Lamport1994?}) is
-the author of \LaTeX.) The web is also replete with resources; just do a
+\citet{KopkaDaly2003}, \citet{Lamport1994} and
+\citet{MittelbachGoossens2004}. (Of course \citet{Lamport1994} is the
+definitive source of information since \citet{Lamport1994} is the author
+of \LaTeX.) The web is also replete with resources; just do a
 Google\texttrademark~search on ``\texttt{latex}''. (Amazingly one gets
 the relevant web sites on the first few hits; only later on do sites
 aimed at rubber-fetishists start to show up.)
@@ -361,19 +353,19 @@ way. Line numbering is effected by placing
 
 A primary requirement that the Journal imposes is that papers must be
 written lucidly and in clear and grammatically correct English.
-Consequently (\textbf{sec:clarExpos?}) is devoted to issues that arise
+Consequently Section~\ref{sec-clarExpos} is devoted to issues that arise
 in respect of good exposition. Other requirements include proper
 formatting of the title page. This is done \emph{far} more easily if you
 make use of the resources provided by the \texttt{anzsauth} document
 class than if you attempt to do the formatting ``by hand''. (See
-(\textbf{sec:titPage?})).
+Section~\ref{sec-titPage}).
 
 The Journal insists that citations should be formed correctly and in
 accordance with its conventions. Likewise the list of references must
 have the correct structure. Again these requirements are \emph{greatly}
 facilitated if you make use of the resources provided (by means of
 \BibTeX~and the \texttt{anzsj} bibliography style). These matters are
-discussed in (\textbf{sec:bibRef?}).
+discussed in Section~\ref{sec-bibRef}.
 
 Although this is \emph{not} handled in an automatic manner, it is
 important to adhere to the Journal's notation conventions. Most of the
@@ -382,28 +374,29 @@ Style Guide for Authors'' to be found in the file
 \texttt{styleGuide.pdf} referred to above.
 
 Some of the more salient points about notation are dealt with in
-(\textbf{sec:noteConv?}) in the current document (thus overlapping a bit
-with the style guide). Displayed equations and their numbering are dealt
-with in (\textbf{sec:eqnNumb?}). In this section some cogent advice is
-given about handling arrays of equations. Issues that arise in respect
-of the inclusion of figures and tables in a paper are discussed in
-(\textbf{sec:figAndTab?}). In (\textbf{sec:crossref?}) some remarks are
-made, and avuncular advice given, about cross referencing.
-(\textbf{sec:append?}) presents the Journal's policy about how
+Section~\ref{sec-noteConv} in the current document (thus overlapping a
+bit with the style guide). Displayed equations and their numbering are
+dealt with in Section~\ref{sec-eqnNumb}. In this section some cogent
+advice is given about handling arrays of equations. Issues that arise in
+respect of the inclusion of figures and tables in a paper are discussed
+in Section~\ref{sec-figAndTab}. In Section~\ref{sec-crossref} some
+remarks are made, and avuncular advice given, about cross referencing.
+Section~\ref{sec-append} presents the Journal's policy about how
 appendices should be headed. It also describes the \texttt{Appendix} and
 \texttt{uniqueAppendix} environments that are now provided by the
 \texttt{anzsauth} document class and that make it easy for you to make
 sure that your appendices are headed in the correct manner.
-(\textbf{sec:prepDocs?}) provides a little bit of advice about preparing
-and processing the ``source files'' that underlie the use of \LaTeX.
+Section~\ref{sec-prepDocs} provides a little bit of advice about
+preparing and processing the ``source files'' that underlie the use of
+\LaTeX.
 
 It has been pointed out to me that some authors need some guidance as to
 what to do with the files \texttt{anzsauth.cls} and \texttt{anzsj.bst}
 which are to be found in the \texttt{anzsauth.zip} zip archive. A little
-bit of such guidance is given in (\textbf{sec:wheretoshove?}).
+bit of such guidance is given in Section~\ref{sec-wheretoshove}.
 
 Various exhortations are reiterated, and some advice about how to make
-use of \texttt{protoType.tex} is given in (\textbf{sec:concComm?}). In
+use of \texttt{protoType.tex} is given in Section~\ref{sec-concComm}. In
 this last Section you are additionally exhorted to create a \emph{tidy}
 \LaTeX~source file.
 
@@ -412,29 +405,29 @@ this last Section you are additionally exhorted to create a \emph{tidy}
 \texttt{\textbackslash{}citep\{\}}. Readers might be interested to know
 about some of the ``literary'' allusions found in this document. The
 title of this paper is actually that of a (fictitious, of course) book
-that is referred to in the (real) book \emph{A Maze of Death} by Philip
-K. Dick (\citeyear{Dick1971}). The aforesaid title exemplifies a
-particularly egregious error in English usage that can be described as
-``faulty parallelism''. It is an example of the sort of thing that one
+that is referred to in the (real) book \emph{A Maze of Death} by
+\citet{Dick1971}. The aforesaid title exemplifies a particularly
+egregious error in English usage that can be described as ``faulty
+parallelism''. It is an example of the sort of thing that one
 \emph{shouldn't do}! Philip K. Dick is perhaps best known as the author
 of \emph{Do Androids Dream of Electric Sheep?} \citep{Dick1968} upon
-which the movie \_Blade Runner\} (starring Harrison Ford) was based. The
-fictitious book referred to above was putatively written by one A. J.
-Specktowsky who is given the honour of being first author of the current
-paper. Philip K. Dick himself has been made the second author. The third
-author, my very good self, is the real author. (The repeated use of the
-word ``real'' in the foregoing paragraph invites the question ``What is
-reality?'' But let's not go there!)
+which the movie \emph{Blade Runner} (starring Harrison Ford) was based.
+The fictitious book referred to above was putatively written by one A.
+J. Specktowsky who is given the honour of being first author of the
+current paper. Philip K. Dick himself has been made the second author.
+The third author, my very good self, is the real author. (The repeated
+use of the word ``real'' in the foregoing paragraph invites the question
+``What is reality?'' But let's not go there!)
 
 The ``Department of Redundancy Department'' is an allusion to the comedy
 recording \emph{Don't Crush that Dwarf, Hand Me the Pliers} by the group
-\emph{Firesign Theatre} (\textbf{Firesign1970?}). ``Sirius Cybernetics
+\emph{Firesign Theatre} \citep{Firesign1970}. ``Sirius Cybernetics
 Corporation'' is an allusion to \emph{The Hitch Hiker's Guide to the
-Galaxy} (\textbf{Adams1979?}). The address of the Complaints Division of
-the Sirius Cybernetics Corporation refers back, for no particularly good
-reason, to (\textbf{Firesign1970?}).
+Galaxy} \citep{Adams1979}. The address of the Complaints Division of the
+Sirius Cybernetics Corporation refers back, for no particularly good
+reason, to \citep{Firesign1970}.
 
-\section{Clarity of exposition}\label{sec:clarExpos}
+\section{Clarity of exposition}\label{sec-clarExpos}
 
 Obviously the fundamental consideration in respect of assessing a
 paper's quality is its actual content: its correctness and its value in
@@ -547,7 +540,7 @@ Use ``\noindent'' where appropriate. \noindent Authors must be aware
 that there is a \emph{cost} associated with this service, and this cost
 must be borne by the author(s) of the paper in question.
 
-\section{Formatting the title page}\label{sec:titPage}
+\section{Formatting the title page}\label{sec-titPage}
 
 Do not try to create the list of authors, their affiliations and their
 addresses by hand. This is difficult, kludgy and usually leads to
@@ -592,21 +585,22 @@ By learning to use these resources you will in the long run save a
 \emph{great} deal of time and dramatically reduce the effort that you
 expend.
 
-\subsection{Bibliographic references}\label{sec:bibRef}
+\subsection{Bibliographic references}\label{sec-bibRef}
 
-\subsection{The Journal's citation rules}\label{sec:citeRules}
+\subsection{The Journal's citation rules}\label{sec-citeRules}
 
-The Journal (for the sake of consistency; see (\textbf{sec:noteConv?}))
-imposes a number of strict rules or conventions on the way that
-citations are formed. Authors \emph{must} follow these conventions. Just
-as you are advised not to format the title page ``by hand'', you are
-strongly encouraged not to produce your citations and your list of
-references in an ad hoc one-by-one manner. Instead use the (very well
-designed) tools that are available for the purpose. That is, make use of
-\BibTeX~and the \texttt{anzsj} bibliography style (see
-(\textbf{sec:useBib?})). If you do so, then (most of) the Journal's
-required conventions will be followed automatically, thereby saving you
-a great deal of work and a great many headaches.
+The Journal (for the sake of consistency; see
+Section~\ref{sec-noteConv}) imposes a number of strict rules or
+conventions on the way that citations are formed. Authors \emph{must}
+follow these conventions. Just as you are advised not to format the
+title page ``by hand'', you are strongly encouraged not to produce your
+citations and your list of references in an ad hoc one-by-one manner.
+Instead use the (very well designed) tools that are available for the
+purpose. That is, make use of \BibTeX~and the \texttt{anzsj}
+bibliography style (see Section~\ref{sec-useBib}). If you do so, then
+(most of) the Journal's required conventions will be followed
+automatically, thereby saving you a great deal of work and a great many
+headaches.
 
 If you insist on ``doing things your own way'', then you must \emph{read
 carefully} the relevant section of ``\emph{ANZJS} Style Guide for
@@ -662,7 +656,7 @@ tables or figures must be listed in the reference list. A work must
 \emph{not} appear in the reference list \emph{unless} it is cited in the
 text.
 
-\section{\texorpdfstring{Using \BibTeX~}{Using ~}}\label{sec:useBib}
+\section{\texorpdfstring{Using \BibTeX~}{Using ~}}\label{sec-useBib}
 
 Authors are \textbf{\emph{STRONGLY}} encouraged to make use of the
 resources provided by \BibTeX~in preparing their lists of references and
@@ -704,9 +698,9 @@ To use \BibTeX~you need to do the following:
   entries these items would produce, just un-comment
   the''\texttt{\textbackslash{}nocite} lines and then compile
   \texttt{protoType.tex}. More information about the structure of
-  \texttt{*.bib} files may be found in
-  (\textbf{MittelbachGoossens2004?}). There are also many resources to
-  be found on the web by doing a Google\texttrademark\\
+  \texttt{*.bib} files may be found in \citet{MittelbachGoossens2004}.
+  There are also many resources to be found on the web by doing a
+  Google\texttrademark\\
   search on ``\texttt{bibtex}''.
 \item
   At the end of your \LaTeX~source for your document place the line
@@ -720,11 +714,11 @@ To use \BibTeX~you need to do the following:
   \texttt{\textbackslash{}bibliography\{protoRefs\}}.
 \end{enumerate}
 
-\subsection{Citing references}\label{sec:citRef}
+\subsection{Citing references}\label{sec-citRef}
 
 Cite references by using \texttt{\textbackslash{}cite\{...\}} and
 variants thereof. Some discussion of the possible variants is to be
-found in (\textbf{sec:citeVar?}). The \texttt{...} ellipsis in
+found in Section~\ref{sec-citeVar}. The \texttt{...} ellipsis in
 \texttt{\textbackslash{}cite\{...\}} represents the identifier for the
 item being cited. If you (sensibly) use \BibTeX, the identifier is
 provided in the first line of the bibliographic information about the
@@ -754,7 +748,7 @@ identifier \texttt{NurkEtAl1984}. I emphasise that this is just my
 personal convention that I have found useful; you are under no
 obligation to follow it.
 
-\subsection{Variants of the basic citation command}\label{sec:citeVar}
+\subsection{Variants of the basic citation command}\label{sec-citeVar}
 
 In addition to the ``usual'' citation command
 ``\texttt{\textbackslash{}cite}'' there are a number of alternative
@@ -810,9 +804,9 @@ appearing in a line of text. Well, I hear you cry, doesn't just plain
 \emph{mostly}. In ``simple'' usage \texttt{\textbackslash{}citet\{...\}}
 and \texttt{\textbackslash{}cite\{...\}} produce exactly the same
 result. However, if one supplies the optional first argument to these
-commands (see (\textbf{sec:locPrecise?})) the results produced are
+commands (see Section~\ref{sec-locPrecise}) the results produced are
 different in an important way. We defer giving an example to
-(\textbf{sec:locPrecise?}).
+Section~\ref{sec-locPrecise}.
 
 The \texttt{\textbackslash{}citealt\{...\}} variant basically has the
 effect of removing the parentheses from around the year (or from around
@@ -822,9 +816,9 @@ the year and ``optional first argument''). Compare
 \texttt{\textbackslash{}citealt\{Coyote2010\}} which produces
 ``\citealt{Coyote2010}''. An example of the use of
 \texttt{\textbackslash{}citealt} which involves its ``optional first
-argument'' is given in (\textbf{sec:locPrecise?}).
+argument'' is given in Section~\ref{sec-locPrecise}.
 
-\subsection{Locating references precisely}\label{sec:locPrecise}
+\subsection{Locating references precisely}\label{sec-locPrecise}
 
 I commence this section with a desideratum, or a plea, rather than a
 rule as such: Where you have referred to a book, or even a long paper,
@@ -845,14 +839,14 @@ to get the appropriate form of the citation referred to above.
 This example produces (as you can see) a result entirely enclosed in
 parentheses. Suppose you want to say ``See for instance
 \citet[Section 2.4]{MittelbachGoossens2004} for additional commentary.''
-As foreshadowed in (\textbf{sec:citeVar?}), to achieve this effect you
+As foreshadowed in Section~\ref{sec-citeVar}, to achieve this effect you
 can invoke the command
 \texttt{\textbackslash{}citet{[}Section\ 2.4{]}\{MittelbachGoossens2004\}}.
 Another possibility, which gets rid of parentheses completely, is to use
 \texttt{\textbackslash{}citealt{[}Section\ 2.4{]}\{MittelbachGoossens2004\}}.
 (This is the example of the use of \texttt{\textbackslash{}citealt} with
-an optional first argument, as promised in (\textbf{sec:citeVar?}).) Use
-of this command would serve to produce ``See for instance
+an optional first argument, as promised in Section~\ref{sec-citeVar}.)
+Use of this command would serve to produce ``See for instance
 \citealt[Section
 2.4]{MittelbachGoossens2004} for additional commentary.''
 
@@ -877,15 +871,14 @@ of this convention:
 \item
   For papers with three or fewer authors, all authors' names must be
   given in a citation. E.g. a paper with authors Fred Nurk, Melvin
-  Mingdinkler and Hoo Hee, cited via
-  \texttt{\textbackslash{}cite\{NurkEtAl1984\}}, would yield
-  ``\cite{NurkEtAl1984}''.
+  Mingdinkler and Hoo Hee, cited via \texttt{@NurkEtAl1984}, would yield
+  ``\citet{NurkEtAl1984}''.
 \item
   For papers with four or more authors, only the first author's name,
   followed by ``et al.'' should be given in a citation. E.g. a paper
   with authors D. Trump, M. Rubio, T. Cruz, J. Bush, J. Kasich and B.
-  Carson, cited via \texttt{\textbackslash{}cite\{TrumpEtAl2021\}} would
-  yield ``\cite{TrumpEtAl2021}''.
+  Carson, cited via \texttt{@TrumpEtAl2021} would yield
+  ``\citet{TrumpEtAl2021}''.
 \end{itemize}
 
 This is a \textbf{change of policy} from what was previously stated in
@@ -899,7 +892,7 @@ simpler and ``cleaner'' protocol, achieves an admirable consistency
 between guidelines and actual practice and makes life a lot simpler for
 everyone.
 
-\subsection{Notational conventions}\label{sec:noteConv}
+\subsection{Notational conventions}\label{sec-noteConv}
 
 It may seem dogmatic, but the Journal has some strict rules about
 notational conventions that must be followed. The reason for these rules
@@ -911,7 +904,7 @@ the Journal; authors must follow it.
 
 A few of the more important examples of these conventions are listed
 below. Many others are given in the document ``\emph{ANZJS} Style Guide
-for Authors'' as mentioned in (\textbf{sec:intro?}).
+for Authors'' as mentioned in Section~\ref{sec-intro}.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -983,7 +976,7 @@ construct a convenient ``shorthand'' that will allow you to produce
 notation conforming to the Journal's requirements using a minimal number
 of keystrokes.
 
-\subsection{Equation numbering}\label{sec:eqnNumb}
+\subsection{Equation numbering}\label{sec-eqnNumb}
 
 An equation should be given a number \textbf{\emph{ONLY IF}} if it is
 referred to elsewhere in the paper. Use
@@ -1018,19 +1011,19 @@ Very often you will wish to have only one number associated with an
 array of equations. To suppress equation numbers you can use the
 \texttt{\textbackslash{}nonumber} command with \texttt{align}, but you
 get a sexier result if you use \texttt{split} inside an equation
-environment. Examples: \begin{equation}
+environment. Examples: \begin{equation}\phantomsection\label{eq-GNZ}{
 \E \left (\sum_i h(x_i,\bX \setminus \{x_i\}) \right )
 = \E \left ( \int_W h(u,\bX) \lambda(u,\bX) \; du \right )
-\label{eq:GNZ}
-\end{equation} and \begin{equation}
-\begin{split}
+}\end{equation} and
+
+\begin{equation}\phantomsection\label{eq-gammaMM}{\begin{split}
 \alpha \beta &= \bar{x} \\
 \alpha \beta^2 &= s^2 \;\; .
 \end{split}
-\label{eq:gammaMM}
-\end{equation} Note how the label (i.e.~``(\ref{eq:gammaMM})'') is
-vertically centred with respect to the array of equations. See the
-\LaTeX\\
+}\end{equation}
+
+Note how the label (i.e.~``(\ref{eq-gammaMM})'') is vertically centred
+with respect to the array of equations. See the \LaTeX\\
 source for the foregoing example in the file \texttt{protoType.tex} for
 guidance as to how all this is done.
 
@@ -1041,7 +1034,7 @@ in the appendices if any. (I.e. they should \emph{not} be numbered
 As long as you do not take any overt action to mess it up, you will get
 the appropriate style in your document.
 
-\subsection{Figures and tables}\label{sec:figAndTab}
+\subsection{Figures and tables}\label{sec-figAndTab}
 
 \% Multipanel figures in single figure files. Figures and tables often
 cause problems with the processing of papers. Here are a few comments on
@@ -1070,20 +1063,24 @@ making use of the \texttt{\textbackslash{}par(mfrow=c(n1,n2))} command
 before issuing the \texttt{plot()} commands that produce the graphical
 displays in each panel. (In the foregoing, \texttt{n1} and \texttt{n2}
 represent the dimensions of the array of panels. In the example shown in
-Figure\textasciitilde{}\ref{fig:ltdb}, \texttt{n1} and \texttt{n2} are
-both equal to 2.)
+Figure~\ref{fig-ltdb}, \texttt{n1} and \texttt{n2} are both equal to 2.)
 
-\begin{figure}[htp]
-\centering
-\makebox{\includegraphics[width=0.95\textwidth]{ltdbFigure}}
-\caption{\label{fig:ltdb}
-Characteristics of the Lesser Tasmanian Drop Bear (farkling
-fraction, intracranial perspicacity and serendipity all in
-furlongs per fortnight) plotted against body mass (kilograms).
-The observations were made on samples obtained at four locations
-in Tasmania. Plotted points represent the raw observed values;
-plotted lines represent non-parametric fits to the raw data.}
-\end{figure}
+\begin{figure}
+
+\centering{
+
+\includegraphics{ltdbFigure.pdf}
+
+}
+
+\caption{\label{fig-ltdb}Characteristics of the Lesser Tasmanian Drop
+Bear (farkling fraction, intracranial perspicacity and serendipity all
+in furlongs per fortnight) plotted against body mass (kilograms). The
+observations were made on samples obtained at four locations in
+Tasmania. Plotted points represent the raw observed values; plotted
+lines represent non-parametric fits to the raw data.}
+
+\end{figure}%
 
 \% Distinguishing line types and point types. Another important issue is
 making sure that line types and plotting symbols are
@@ -1099,10 +1096,9 @@ white in the printing process usually look awful! Consequently the
 Journal does not countenance this practice.) In particular, lines in
 different categories should be distinguished by \emph{line type} ---
 solid, dashed, dotted \ldots, and not by colour. A modest example is
-given in Figure\textasciitilde{}\ref{fig:ltdb}. Sometimes it is useful,
-or perhaps even necessary, to distinguish categories by means of line
-\emph{thickness} but proceeding in this way requires a great deal of
-care.
+given in Figure~\ref{fig-ltdb}. Sometimes it is useful, or perhaps even
+necessary, to distinguish categories by means of line \emph{thickness}
+but proceeding in this way requires a great deal of care.
 
 Note that colour figures can appear in the online version of the paper
 for \emph{free}! However care must be taken, since \emph{only one}
@@ -1126,37 +1122,68 @@ Possibilities for effecting the re-design include eliminating some of
 the ``information'', splitting the table into two or more smaller tables
 and putting all or part of the table into the online supplementary
 material. An example of a reasonably perspicuous table is given in
-Table\textasciitilde{}\ref{tab:ltdb}.
+Table~\ref{tbl-ltdb}.
 
-\begin{table}[htp]
-\caption{
-A load of dingoes' kidneys in respect
-of characteristics of the Lesser Tasmanian Drop Bear.  Standard
-deviations are given in parentheses after the mean values.}
-\centering
-\begin{tabular}{|l|r|r|r|r|} \hline
-Location & Body mass (kg.) & Farkling & Intracranial & Serendipity \\ 
-         &                 & fraction & perspicacity &             \\ \hline
-  Port Arthur &  3.95 ( 2.40) & 10.14 ( 2.43) &  9.91 ( 1.99) &  9.81 ( 2.24) \\ 
-  Melaleuca   &  4.55 ( 2.41) & 10.48 ( 3.51) & 10.83 ( 2.94) & 10.54 ( 3.30) \\ 
-  Wynyard     &  3.87 ( 2.70) &  9.51 ( 2.20) &  9.40 ( 2.44) &  9.50 ( 2.23) \\ 
-  Bicheno     &  4.16 ( 2.41) & 10.46 ( 2.44) & 10.44 ( 2.64) & 10.20 ( 2.86) \\ 
-   \hline
-\end{tabular}
-\end{table}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1594}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1884}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2319}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2319}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1884}}@{}}
+\caption{A load of dingoes' kidneys in respect of characteristics of the
+Lesser Tasmanian Drop Bear. Standard deviations are given in parentheses
+after the mean values.}\label{tbl-ltdb}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Location
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Body mass (kg.)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Farkling fraction
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Intracranial perspicacity
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Serendipity
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Location
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Body mass (kg.)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Farkling fraction
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Intracranial perspicacity
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Serendipity
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Port Arthur & 3.95 ( 2.40) & 10.14 ( 2.43) & 9.91 ( 1.99) & 9.81 (
+2.24) \\
+Melaleuca & 4.55 ( 2.41) & 10.48 ( 3.51) & 10.83 ( 2.94) & 10.54 (
+3.30) \\
+Wynyard & 3.87 ( 2.70) & 9.51 ( 2.20) & 9.40 ( 2.44) & 9.50 ( 2.23) \\
+Bicheno & 4.16 ( 2.41) & 10.46 ( 2.44) & 10.44 ( 2.64) & 10.20 (
+2.86) \\
+\end{longtable}
 
 As stated in the ``\emph{ANZJS} Style Guide for Authors'' captions for
 tables and figures should be left-justified and not centred unless the
 text of the caption fits on a single line. However one-line captions
-should be centred. For instance if the caption of
-Table\textasciitilde{}\ref{tab:ltdb} were simply ``Dingoes' kidneys'',
-then centring would be preferable. When the \texttt{anzsauth} document
-class is used, captions are automatically centred if the caption fits on
-a single line. (Note that the document class file \texttt{anzsauth.cls}
-has recently --- as of \printdateTeX{2016/11/06} --- been adjusted to
-make table captions more similar in appearance to figure captions.
-Because of this adjustment, the centring of one-line table captions is
-now automatic whereas, previously, overt measures were required.)
+should be centred. For instance if the caption of Table~\ref{tbl-ltdb}
+were simply ``Dingoes' kidneys'', then centring would be preferable.
+When the \texttt{anzsauth} document class is used, captions are
+automatically centred if the caption fits on a single line. (Note that
+the document class file \texttt{anzsauth.cls} has recently --- as of
+\printdateTeX{2016/11/06} --- been adjusted to make table captions more
+similar in appearance to figure captions. Because of this adjustment,
+the centring of one-line table captions is now automatic whereas,
+previously, overt measures were required.)
 
 A table or figure that appears in the paper \emph{must} be referred to
 in the text, even if only very briefly. That is, there must at the very
@@ -1164,7 +1191,7 @@ least be something like ``see Figure\textasciitilde17''. If there is no
 such reference, then the corresponding table or figure must not be
 included in the paper.
 
-\section{Cross referencing}\label{sec:crossref}
+\section{Cross referencing}\label{sec-crossref}
 
 A facility provided by \LaTeX~that tends to be underused in submissions
 to the Journal is automated cross-referencing as provided by the
@@ -1176,25 +1203,24 @@ good idea to give a label to each section and subsection, as you are
 composing it, even if you are not sure you will be referring to it in
 other sections. (There is no \emph{harm} in inserting a label.) If you
 assign labels to sections then you can easily invite the reader to ``see
-(\textbf{sec:figAndTab?})'' (as I am about to do below!). Likewise it is
-a good idea to give each figure and table (see
-(\textbf{sec:figAndTab?})) a label so as to be able to refer to it via
+Section~\ref{sec-figAndTab}'' (as I am about to do below!). Likewise it
+is a good idea to give each figure and table (see
+Section~\ref{sec-figAndTab}) a label so as to be able to refer to it via
 the \texttt{\textbackslash{}ref\{...\}} command.
 
 Only displayed equations that are \emph{actually referred to} should be
-numbered (see (\textbf{sec:eqnNumb?})). If the equation \emph{is}
+numbered (see Section~\ref{sec-eqnNumb}). If the equation \emph{is}
 referred to, then of course you should give it a label so that you
 \emph{can} refer to it easily.
 
 My personal practice is to label sections and subsections with labels of
-the form \texttt{sec:string},
-e.g.~``\texttt{\textbackslash{}label\{sec:intro\}}''. Similarly I form
+the form \texttt{sec-string},
+e.g.~``\texttt{\textbackslash{}label\{sec-intro\}}''. Similarly I form
 such labels for figures and tables as \texttt{fig:string} or
-\texttt{tab:string} (e.g. \texttt{\textbackslash{}label\{fig:ltdb\}} or
-\texttt{\textbackslash{}label\{tab:ltdb\}}) and labels for equations as
-\texttt{eq:string} (e.g.~\texttt{\textbackslash{}label\{eq:GNZ\}}). I
-find this practice convenient, but you are of course under no obligation
-to follow it.
+\texttt{tab:string} (e.g. \texttt{\textbackslash{}label\{fig-ltdb\}} or
+\texttt{\textbackslash{}label\{tbl-ltdb\}}) and labels for equations as
+\texttt{eq:string} (e.g.~\texttt{\#eq-GNZ\}}). I find this practice
+convenient, but you are of course under no obligation to follow it.
 
 A practice that I have often seen and that I think should \emph{not} be
 indulged in, is to use labels such as ``\texttt{Figure1}''. There is
@@ -1210,7 +1236,7 @@ course) and let \LaTeX~handle the assignment of numbers! If you insist
 on using labels like unto ``\texttt{Figure1}'', then take great care to
 make sure that the result is correct.
 
-\section{Appendices}\label{sec:append}
+\section{Appendices}\label{sec-append}
 
 Journal policy is that if there is a single appendix to your document it
 should be headed simply `\textbf{Appendix}' (i.e.~there should be no
@@ -1256,10 +1282,10 @@ The text constituting the illustration of \texttt{uniqueAppendix}
 consists of a recapitulation of the foregoing note.
 
 \section{\texorpdfstring{Preparing \LaTeX~and
-\BibTeX~documents}{Preparing ~and ~documents}}\label{sec:prepDocs}
+\BibTeX~documents}{Preparing ~and ~documents}}\label{sec-prepDocs}
 
 \subsection{\texorpdfstring{Editing \LaTeX~source
-files}{Editing ~source files}}\label{editing-source-files}
+files}{Editing ~source files}}\label{sec-editors}
 
 There are a number of approaches to preparing your \texttt{*.tex} and
 \texttt{*.bib} files. A primary consideration is that you should use
@@ -1295,7 +1321,7 @@ Windows\texttrademark, based on \texttt{MiKTeX}'', ``which adds the
 \texttt{TeXstudio} front end to MiKTeX''. Some authors may find it
 helpful.
 
-\subsection{Processing source files}\label{sec:procBib}
+\subsection{Processing source files}\label{sec-procBib}
 
 One advantage of using specialised \LaTeX{} editors is the ease of
 processing (``compiling'') source files, particularly in respect of
@@ -1305,10 +1331,10 @@ single mouse click when \texttt{TeXstudio}, for example, is used.
 If you use a ``general'' text editor and process the source of your
 document by means of command line instructions, the procedure requires
 more steps. To compile a document which uses the \BibTeX\\
-protocols described in (\textbf{sec:useBib?}), you need to run \LaTeX~on
-the document, then run \BibTeX, then run \LaTeX~again (possibly several
-times) until it stops complaining that labels may have changed.
-Something like:
+protocols described in Section~\ref{sec-useBib}, you need to run
+\LaTeX~on the document, then run \BibTeX, then run \LaTeX~again
+(possibly several times) until it stops complaining that labels may have
+changed. Something like:
 
 \begin{verbatim}
     latex magnumOpus
@@ -1336,7 +1362,7 @@ and saves a lot of time and errors. Once you get used to it you'll never
 look back.
 
 \section{\texorpdfstring{What to do with \texttt{anzsauth.cls} and
-\texttt{anzsj.bst}?}{What to do with anzsauth.cls and anzsj.bst?}}\label{sec:wheretoshove}
+\texttt{anzsj.bst}?}{What to do with anzsauth.cls and anzsj.bst?}}\label{sec-wheretoshove}
 
 I have been told that some authors don't know what to do with the files
 (to be found in \texttt{anzsauth.zip}) referred to in the title of this
@@ -1379,16 +1405,21 @@ On Mac OSX\texttrademark~systems you should (apparently) put
     ~/Library/texmf/tex/latex/anzsauth
 \end{verbatim}
 
-and put
-\texttt{anzsj.bst\}\ in\ \textbackslash{}begin\{verbatim\}\ \ \ \ \ \textasciitilde{}/Library/texmf/bibtex/bst/anzsj\ \textbackslash{}end\{verbatim\}\ where\ "}\textasciitilde!''
-means your home directory. (Of course!) Take the foregoing advice with a
-grain of salt --- I don't use Mac OSX\texttrademark~and I have not
-tested the advice that I have given.
+and put \texttt{anzsj.bst} in
+
+\begin{verbatim}
+    ~/Library/texmf/bibtex/bst/anzsj
+\end{verbatim}
+
+where ``\texttt{\textasciitilde{}}'' means your home directory. (Of
+course!) Take the foregoing advice with a grain of salt --- I don't use
+Mac OSX\texttrademark~and I have not tested the advice that I have
+given.
 
 As regards Windows\texttrademark~systems, I can't help you at all. I
-don't \_do\} Windows\texttrademark!
+don't \emph{do} Windows\texttrademark!
 
-\section{Concluding comments}\label{sec:concComm}
+\section{Concluding comments}\label{sec-concComm}
 
 This document contains guidance on how to prepare a paper for submission
 to \emph{ANZJS} by making use of the `anzsauth\} document class for
@@ -1486,6 +1517,7 @@ can you do? (If you want to illustrate the use of both \% environments
 in a single document.)
 
 \begin{uniqueAppendix}
+
 This is what you should get if you had only *one* appendix.
 Since this document has several appendices (four, actually) the
 use of the `uniqueAppendix` environment is completely
@@ -1500,8 +1532,11 @@ inappropriate example of the use of `uniqueAppendix`.
 I reiterate:  Use the `uniqueAppendix` environment if there is
 only one appendix to your document.  Use the `Appendix`
 environment if there are two or more appendices to your document.
+
 \end{uniqueAppendix}
 
+
+  \bibliography{bibliography.bib}
 
 
 \end{document}

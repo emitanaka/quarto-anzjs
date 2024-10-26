@@ -7,9 +7,10 @@ contributes:
     pdf:
       documentclass: anzsauth
       classoption: [times, doublespace]
-      bibliographystyle: anzsj
       pdf-engine: pdflatex
+      biblio-style: anzsj
       number-sections: true
+      cite-method: natbib
       template-partials:
         - title.tex
         - before-title.tex
