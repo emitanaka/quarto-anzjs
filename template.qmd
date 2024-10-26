@@ -4,9 +4,14 @@ subtitle: ANZJS Quarto Template
 format:
   anzjs-pdf:
     keep-tex: true  
+    shorttitle: How I rose from the dead
+    double-space: true
+    line-numbers: true
+    # You can specify extra preamble in the file below.
     include-in-header:
       - template-header.tex
 date: today
+date-format: "YYYY" # used to define volumeyear
 author:
   - name: A. J. Specktowsky
     affiliations:
@@ -33,9 +38,14 @@ author:
       - name: The Australian National University
         department: Biological Data Science Institute
         address: 46 Sullivan's Creek Road, ACT 2600, Australia
+# Note that the Journal requires that a paper must begin with a
+# "Summary" not an "Abstract".  This is automatically taken care
+# of by the anzsauth document style.  So even though the following
+# says "abstract" the heading "Summary" will appear in
+# the processed version.
 abstract: |
   This document serves to illustrate some of the main features of
-  the \LaTeX{} document class `anzsauth` which authors are
+  the Quarto based on \LaTeX{} document class `anzsauth` which authors are
   strongly encouraged to use when preparing papers for submission
   to the _Australian and New Zealand Journal of Statistics_.
   The importance of clarity of exposition as well as a number of
@@ -44,104 +54,54 @@ abstract: |
   for the format of bibliographic references and citations.  It is much
   easier for authors to conform to these requirements if they use the
   resources provided by \BibTeX{} and the `anzsj` bibliography
-  style.  Authors are very strongly encouraged to avail themselves
+  style (used as default in this template).  Authors are very strongly encouraged to avail themselves
   of these resources.  The use of \BibTeX{} syntax is illustrated.
   This document emphasises a few of the notational conventions that
   form an important part of the Journal's stylistic requirements.
   A great deal more material about these requirements may be found
   in the document "_ANZJS Style Guide for Authors_" in the
-  file `styleGuide.pdf`.  That file is included in the zip
-  archive of material from which you obtained the document that you
-  are currently reading, i.e. `protoType.pdf`.
+  file [`styleGuide.pdf`](https://github.com/emitanaka/quarto-anzjs/blob/master/styleGuide.pdf).
+# Below shows how acknowledgements should appear in the Journal.
+# Note that if you are acknowledging financial support, grant
+# numbers should *not* usually be specified.
 acknowledgement: >
-  The author (singular!) --- and he is indeed singular ---
-  gratefully acknowledges input, advice, feedback and encouragement
-  from Alan Welsh, James Curran, Michael Martin, Martin Hazelton,
-  Petra Graham, Chris Triggs, Neville Bartlett, David Scott and
-  Ken Russell.  Any remaining errors or omissions are all their
-  fault.  
+  The author acknowledges that this template is based on the latex template for Australian and New Zealand Journal of Statistics and intersperses some text from the original prototype document. \newline\vspace{1ex}\newline
   Opinions and attitudes expressed in this document,
   which are not explicitly designated as Journal policy, are those of
   the author and are _not_ necessarily endorsed by the Journal,
   its editorial board, its publisher Wiley or by the Australian
   Statistical Publishing Association Inc.
+# Note that "keywords" should not include words and phrases
+# that form part of the title of the paper.
+# Also keywords (with the exception of proper names and
+# certain abbreviations that conventionally appear all in
+# capital letters) should *not* be capitalised.
 keywords: [anzsauth, bibliographic references, bibtex, citations, document class, notational conventions, style guide]
 bibliography: bibliography.bib  
+#nocite: |
+# @PussyRiot2014, @Nixon1984, @Turner2017, @Brillinger2007
 ---
 
 # Introduction {#sec-intro}
 
-The tone of this prototype and the examples used are flippant
-(and meant to be humorous; I guess it all depends on your sense
-of humour).  However the intent is quite serious:  to show
-clearly how to use the `anzsauth` document class so as
+This document show how to use the `anzjs` Quarto document so as
 to be able to produce an article conforming to the Journal's
-requirements with a minimum of effort.  The relevant document
-class file, `anzsauth.cls`, is contained in the zip archive
-`anzsauth.zip` which may be obtained from
+requirements with a minimum of effort.  The correponding template can be found at 
 
+<https://github.com/emitanaka/quarto-anzjs>
 
-<http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291467-842X>
-
-by clicking on "Author Guidelines", scrolling down to "Latex
-Template" and then clicking on the appropriate link.  It is also
-possible to obtain this zip archive by visiting your ScholarOne
-"Author Centre" ("Start New Submission") and noting the bullet
-point:
-
-> $\bullet$ Before submitting or revising your manuscript, please download the zip archive anzsauth.zip by clicking \underline{here}.
-
-Clicking on "here" duly produces the desired zip
-archive.  (You may --- in fact probably!!! --- have already done
-this to obtain the document that you are currently reading.)
-
-In addition to the document class file referred to above, and
-`protoType.pdf`, the document that you are reading, the zip
-archive under discussion contains
-
--  `anzsj.bst` which effects the Journal's bibliography
-style
-- `protoType.tex`, the \LaTeX\ source for `protoType.pdf`
-- `protoRefs.bib`, an example bibliography source file such
-as is needed for use with \BibTeX
-- `ltdbFigure.pdf`, an example figure file
-- `styleGuide.pdf` which contains a more elaborate discussion
-of the Journal's style requirements than does the current document
-- `VERSION`, a file giving the current version number,
-and the version history, of `anzsauth.zip`.
 
 You are advised to _look carefully_ at the source file
-`protoType.tex`, and to spend a little while studying the
+`template.qmd`, and to spend a little while studying the
 examples.  In particular, read the _comments_.
 
-In addition to saving you time and effort on the initial creation
-of the document, using the tools provided by the `anzsauth`
-document class in particular and by \LaTeX\ in general facilitates
-revising the document.  Appropriate adjustments to numbering,
-cross-referencing, and the like are handled automatically.  There are
-many resources available to help beginning (and not-so-beginning)
-users of \LaTeX.  For instance you will find useful information
-and guidance in the books by @KopkaDaly2003, @Lamport1994 and
-@MittelbachGoossens2004.  (Of course @Lamport1994 is
-the definitive source of information since @Lamport1994
-is the author of \LaTeX.)  The web is also replete with resources;
-just do a Google\texttrademark\ search on "`latex`".
-(Amazingly one gets the relevant web sites on the first few hits;
-only later on do sites aimed at rubber-fetishists start to show up.)
 
-An example of the way that \LaTeX\ and the `anzsauth`
-document class make life easier for you is to be found in respect
-of the requirement that papers submitted to the Journal should be
+
+Papers submitted to the Journal should be
 _double spaced_ and should have their lines _numbered_.
-This is important inasmuch as it makes it easier for referees and
+This is important in as much as it makes it easier for referees and
 technical editors to indicate where corrections are required.  Double
-spacing is easily effected by invoking the `anzsauth` document
-class via (e.g.): \label{pg:dsln}
-`\documentclass[times, doublespace]{anzsauth}`.
-The document that you are currently reading is double
-spaced in this way.  Line numbering is effected by placing
-`\usepackage{lineno}` and `\linenumbers` in the preamble.
-See `protoType.tex`.
+spacing and line numbers are included by default, but you can disable these by setting `double-space` and `line-numbers` to `false` in the `format` field of the front matter.
 
 A primary requirement that the Journal imposes is that papers must
 be written lucidly and in clear and grammatically correct English.
@@ -163,7 +123,7 @@ Although this is _not_ handled in an automatic manner,
 it is important to adhere to the Journal's notation conventions.
 Most of the discussion of notational conventions has been placed in
 "_ANZJS_ Style Guide for Authors" to be found in the
-file `styleGuide.pdf` referred to above.
+file [`styleGuide.pdf`](https://github.com/emitanaka/quarto-anzjs/blob/master/styleGuide.pdf).
 
 Some of the more salient points about notation are dealt with
 in @sec-noteConv in the current document (thus
@@ -184,40 +144,12 @@ provides a little bit of advice about preparing and processing the
 
 It has been pointed out to me that some authors need some
 guidance as to what to do with the files `anzsauth.cls` and
-`anzsj.bst` which are to be found in the `anzsauth.zip`
-zip archive.  A little bit of such guidance is given in
-@sec-wheretoshove.
+`anzsj.bst` which come as part of this template. 
 
 Various exhortations are reiterated, and some advice about
-how to make use of `protoType.tex` is given in
+how to make use of `template.qmd` is given in
 @sec-concComm.  In this last Section you are
-additionally exhorted to create a _tidy_ \LaTeX\ source file.
-
-% The following illustrates the use of `\citeyear{}` and `\citep{}`.
-Readers might be interested to know about some of the "literary"
-allusions found in this document.  The title of this paper
-is actually that of a (fictitious, of course) book that is
-referred to in the (real) book _A Maze of Death_ by @Dick1971.  The aforesaid title exemplifies a
-particularly egregious error in English usage that can be described
-as "faulty parallelism".  It is an example of the sort of thing
-that one _shouldn't do_!  Philip K. Dick is perhaps best
-known as the author of _Do Androids Dream of Electric Sheep?_
-[@Dick1968] upon which the movie _Blade Runner_ (starring
-Harrison Ford) was based.  The fictitious book referred to above was
-putatively written by one A. J. Specktowsky who is given the honour
-of being first author of the current paper.  Philip K. Dick himself
-has been made the second author.  The third author, my very good
-self, is the real author.  (The repeated use of the word "real"
-in the foregoing paragraph invites the question "What is reality?"
-But let's not go there!)
-
-The "Department of Redundancy Department" is an allusion to
-the comedy recording _Don't Crush that Dwarf, Hand Me the
-Pliers_ by the group _Firesign Theatre_ [@Firesign1970].
-"Sirius Cybernetics Corporation" is an allusion to _The
-Hitch Hiker's Guide to the Galaxy_ [@Adams1979].  The address
-of the Complaints Division of the Sirius Cybernetics Corporation
-refers back, for no particularly good reason, to [@Firesign1970].
+additionally exhorted to create a _tidy_ Quarto source file.
 
 # Clarity of exposition {#sec-clarExpos}
 
@@ -261,9 +193,9 @@ points!  A grammatically correct phrasing might be something like
 "The SE of the correlation increased in size when the number of
 quadrature points was changed from 4 to 5."  A typical example of a
 misplaced modifier is "A plot of the residuals from Specktowsky's
-model shown in Figure~42 indicates the lack of an adequate fit."
-(The _model_ is not shown in Figure~42!)  Better would be
-"A plot, shown in Figure~42, of the residuals from Specktowsky's
+model shown in Figure 42 indicates the lack of an adequate fit."
+(The _model_ is not shown in Figure 42!)  Better would be
+"A plot, shown in Figure 42, of the residuals from Specktowsky's
 model indicates the lack of an adequate fit."
 
 Some might argue that grammatical issues like these "don't
@@ -330,11 +262,8 @@ The Journal's publisher, Wiley, provides a service that can assist
 authors with English-language editing.  To find out about this
 service you may visit:
 
-{\small
-\url{http://authorservices.wiley.com/bauthor/english_language.asp}
-}
-% Use "\noindent" where appropriate.
-\noindent
+<http://authorservices.wiley.com/bauthor/english_language.asp>
+
 Authors must be aware that there is a _cost_ associated with
 this service, and this cost must be borne by the author(s) of the
 paper in question.
@@ -345,30 +274,14 @@ Do not try to create the list of authors, their affiliations
 and their addresses by hand.  This is difficult, kludgy and
 usually leads to results that are not in keeping with the
 Journal's requirements (which eventually makes more work for
-the typesetters).  Take a moment to learn to use the macros
-that the `anzsauth` document class provides.  Look into
-the _source_ file (`protoType.tex`) that was used to
-produce this document.  Given that you are looking at this document
-(file `protoType.pdf`) you presumably downloaded and unzipped
-the zip archive `anzsauth.zip` from the Journal's web page.
-The source file is to be found among the files obtained from
-that zip archive, alongside the `*.pdf` file that you are
-currently reading.  By looking at the structure of this source file,
-you should be able to quickly discern the way in which these macros
+the typesetters).  Look into
+the _source_ file (`template.qmd`) that was used to
+produce this document. By looking at the structure of this source file,
+you should be able to quickly discern the way in which the frontmatter 
 should be used.
 
-These macros include:
 
-- `\runningheads{...}`
-- `\author{...}`
-- `\affiliation{...}`
-- `\address{...}`
-- `\addressnum{...}`
-- `\keywords{...}`
-- `\ack{...}`
-
-Note also that using the "abstract" environment, delimited by
-"`\begin{abstract}`" and "`\end{abstract}`",
+Note also that when specifying the abstract, the template 
 produces the correct heading "**Summary**" as required by
 the Journal.
 
@@ -395,17 +308,14 @@ and a great many headaches.
 
 If you insist on "doing things your own way",
 then you must _read carefully_ the relevant section of
-"_ANZJS_ Style Guide for Authors" (to be found in the
-file `styleGuide.pdf` which is included in the zip archive
-in which you found the document that you are currently reading)
-and carefully follow the specifications given.
+"_ANZJS Style Guide for Authors_" and carefully follow the specifications given.
 
 A rule that \BibTeX\ and the `anzsj` bibliography style will
 _not_ automatically handle for you is that the names of journals
-appearing in the reference list must _not be} abbreviated.
+appearing in the reference list must _not be_ abbreviated.
 This is a
 \begin{center}
-{\large **CHANGE or REVERSAL}}
+{\large \textbf{CHANGE or REVERSAL}}
 \end{center}
 of Journal policy from what it has been in the past. (One might
 be inclined to say that it is an "about face" or retreat, or
@@ -476,45 +386,40 @@ with overlapping but not identical reference lists.  Of course
 when submitting a paper you may wish to upload only a cut-down
 `*.bib` file that contains only the relevant references
 (rather than a very large bibliographic information file with a
-plethora of irrelevant entries). 
+plethora of irrelevant entries). \newline
 The way that the information in your bibliographic information
 file should be structured is illustrated by the example file
-`protoRefs.bib` that accompanies the document that you
+`bibliography.bib` that accompanies the document that you
 are currently reading.  Imitating the entries in this example
 file should allow you to create just about any references
 you need to use.  Note that some rather off-beat entries in
-`protoRefs.bib` are not cited in this paper and hence
+`bibliography.bib` are not cited in this paper and hence
 do not appear in the bibliography.  This is in accordance with
-the rule that _only} literature which is actually cited
+the rule that _only_ literature which is actually cited
 may appear in the list of references.  Four of these entries are
-referred to in commented-out "`\nocite` commands at the end
-of the source file `protoType.tex`.  If you want to see what
+referred to in commented-out `nocite` in the front matter at the start
+of the source file `template.qmd`.  If you want to see what
 bibliography entries these items would produce, just un-comment the
-"`\nocite` lines and then compile `protoType.tex`.
+`nocite` lines and then compile `template.qmd`.
 More information about the structure of `*.bib` files may
 be found in @MittelbachGoossens2004.  There are also many
 resources to be found on the web by doing a Google\texttrademark\
 search on "`bibtex`".
-1. At the end of your \LaTeX\ source for your document place the line
-`\bibliographystyle{anzsj}`.
-1. Following this line place the line `\bibliography{xxx}`
-where "`xxx`" represents the _stem_ (without the `.bib`
-extension) of the name of your bibliographic information file.
-E.g. in preparing the current document I used the line
-`\bibliography{protoRefs}`.
+
+At the start of your Quarto document, add `bibliography: xxx.bib` where "`xxx.bib`" refers to the name of your bibliographic information file.
+
 
 ## Citing references {#sec-citRef}
 
-Cite references by using `\cite{...}` and variants
+Cite references by using `@ref-id` and variants
 thereof.  Some discussion of the possible variants is to be
-found in @sec-citeVar.  The `...` ellipsis
-in `\cite{...}` represents the identifier for the item
+found in @sec-citeVar.  The `ref-id`` represents the identifier for the item
 being cited.  If you (sensibly) use \BibTeX, the identifier
 is provided in the first line of the bibliographic information
 about the item being cited.  For example _The_ \LaTeX\
 _Companion_ referred to above was cited in this document
-via `\cite{MittelbachGoossens2004}`.  The relevant item in
-`protoRefs.bib` begins
+via `@MittelbachGoossens2004`.  The relevant item in
+`bibliography.bib` begins
 
 ```
     @book{MittelbachGoossens2004,
@@ -538,130 +443,17 @@ found useful; you are under no obligation to follow it.
 
 ## Variants of the basic citation command {#sec-citeVar}
 
-In addition to the "usual" citation command "`\cite`"
+In addition to the "usual" citation command "`@ref-id`"
 there are a number of alternative citation commands that can be used
-to create special punctuation structures in particular circumstances.
-For example you can use `\citeauthor{...}` to obtain just the
-author's name (without the year) as in:
-% Example of the use of \citeauthor.
+to create special punctuation structures in particular circumstances. See more on the Quarto documentation site [here](https://quarto.org/docs/authoring/citations.html#sec-citations).
 
-> The major results that have so far appeared in this area are due to \cite{Mingdinkler1999}.  In this paper we further explore and elaborate upon the ideas introduced by \citeauthor{Mingdinkler1999} \ldots~.
-
-(The final "Mingdinkler" was produced using `\citeauthor{...}`.)
-Another example of the use of `\citeauthor{...}` is
-"This problem was addressed in the book by
-\citeauthor{Thecowsoutside1984}."
-
-% Examples of the use of \citeyear.
-Another variant of `\cite{...}` is `\citeyear{...}`
-which is used to produce only the year of the reference being cited.
-E.g. "These ideas were also discussed in a number of papers by
-Coyote which appeared in \citeyear{Coyote2001}, \citeyear{Coyote2007}
-and \citeyear{Coyote2010}."  A variant of this variant is
-`\citeyearpar{...}` which causes the cited year to be enclosed
-in parentheses, e.g. "S. Pussycat \citeyearpar{Pussycat1989}, in
-a discussion of a read paper of the Royal Ornithological Society,
-pointed out that there remain in the public mind a large number of
-misconceptions about the behaviour patterns of canaries."
-Of course the same effect could be achieved by _not_
-keying in the text "S. Pussycat" and simply using
-`\cite{Pussycat1989}` so it's a bit hard to see when you
-would actually need to use `\citeyearpar`.
-
-% Examples of the use of \citep.
-Yet another variant of `\cite{...}` is `\citep{...}` which
+Yet another variant of `@ref-id` is `[@ref-id]` which
 encloses the whole citation, rather than just the year, in
-parentheses.  E.g. "Some authors prefer the hack \citep{Cook1966},
-others the hew \citep{Moore1967}, and still others opt for a
-combination \citep{CookMoore1968}."
-
-A couple of somewhat subtle variants are `\citealt{...}` and
-`\citet{...}`.  In the second of these the "t" stands for
-"text" and produces a citation that is suitable for appearing
-in a line of text.  Well, I hear you cry, doesn't just plain
-`\cite{...}` do that?  Yes it does, _mostly_.  In
-"simple" usage `\citet{...}` and `\cite{...}` produce
-exactly the same result.  However, if one supplies the optional
-first argument to these commands (see @sec-locPrecise)
-the results produced are different in an important way.  We defer
-giving an example to @sec-locPrecise.
-
-The `\citealt{...}` variant basically has the effect of removing
-the parentheses from around the year (or from around the year and
-"optional first argument").  Compare `\cite{Coyote2010}` which
-produces "\cite{Coyote2010}" with `\citealt{Coyote2010}` which
-produces "\citealt{Coyote2010}".  An example of the use of
-`\citealt`  which involves its "optional first argument"
-is given in @sec-locPrecise.
-
-## Locating references precisely {#sec-locPrecise}
-
-I commence this section with a desideratum, or a plea, rather
-than a rule as such: Where you have referred to a book, or even
-a long paper, _please_ give some indication (for example a
-page number or a section number) to help your readers locate the
-precise reference.  This is part of the general exhortation "Have
-some consideration for your readers!"
-
-% Use of the optional first argument of \cite.
-References to specific locations (pages, sections, theorems etc.)
-should take the form "\cite[Section 2.4]{MittelbachGoossens2004}".
-That is, the citation should take the foregoing form rather than
-"Section 2.4 of \cite{MittelbachGoossens2004}".  This is
-handled for you automatically by the `\cite{...}! command
-if you make use of the optional first argument of this command.
-E.g. use `\cite[Section 2.4]{MittelbachGoossens2004}` to get
-the appropriate form of the citation referred to above.
-
-This example produces (as you can see) a result entirely enclosed
-in parentheses.  Suppose you want to say "See for instance
-\citet[Section 2.4]{MittelbachGoossens2004} for additional
-commentary."  As foreshadowed in @sec-citeVar, to
-achieve this effect you can invoke the command
-`\citet[Section 2.4]{MittelbachGoossens2004}`.  Another
-possibility, which gets rid of parentheses completely, is to use
-`\citealt[Section 2.4]{MittelbachGoossens2004}`.  (This is
-the example of the use of `\citealt` with an optional first
-argument, as promised in @sec-citeVar.)  Use of this
-command would serve to produce "See for instance \citealt[Section
-2.4]{MittelbachGoossens2004} for additional commentary."
-
-For page references you may use either the form "p. 42" as in
-`\cite[p. 42]{Dick1971}`, or "page 42" as in
-`\cite[page 42]{Dick1971}`.  Likewise for multiple pages you may
-use either `\cite[pp. 42--76]{Dick1971}`
-or `\cite[pages 42--76]{Dick1971}`.
-However you must be consistent and stick with one form or the
-other throughout the paper.  Note there must be a _space_
-between the full stop or period and the following page number.
-
-Finally I would like to comment briefly on the convention with
-regard to citing papers with multiple authors.  This convention
-is followed automatically if you use \BibTeX\ and the `anzsj`
-bibliography style, but if you don't, then you will
-need to take explicit cognizance of this convention:
-
-- For papers with three or fewer authors, all authors' names
-must be given in a citation.  E.g. a paper with authors Fred Nurk,
-Melvin Mingdinkler and Hoo Hee, cited via `@NurkEtAl1984`,
-would yield "@NurkEtAl1984".
-- For papers with four or more authors, only the first
-author's name, followed by "et al." should be given in a citation.
-E.g. a paper with authors D. Trump, M. Rubio, T. Cruz, J. Bush, J. Kasich
-and B. Carson, cited via `@TrumpEtAl2021` 
-would yield "@TrumpEtAl2021". 
+parentheses.  E.g. "Some authors prefer the hack [@Cook1966],
+others the hew [@Moore1967], and still others opt for a
+combination [@CookMoore1968]."
 
 
-This is a **change of policy** from what was previously stated
-in the Author Guidelines provided on the Journal's web page.
-Both the guidelines (which, by the way, were inconsistent with
-what was actually implemented by the `anzsj` bibliography
-style!) _and_ the `anzsj.bst` bibliography style file
-have been adjusted.  The convention formerly stated in the guidelines
-was intricate, slightly tricky to adhere to and rarely enforced.
-The adjustment provides a simpler and "cleaner" protocol, achieves
-an admirable consistency between guidelines and actual practice
-and makes life a lot simpler for everyone.
 
 ## Notational conventions {#sec-noteConv}
 
@@ -722,7 +514,7 @@ To help you adhere (effortlessly!) to the conventions specified
 in items \ref{op:expect} and \ref{op:var} there are now commands
 `\E`, `\var`, `\cov` and `\cor` defined in the
 `anzsauth` document class.  This is effected by means of the
-`\newcommand{}! facility provided by \LaTeX.  These commands
+`\newcommand{}` facility provided by \LaTeX.  These commands
 produce the required form of the expectation operator and the
 variance, covariance and correlation operators.
 
@@ -738,13 +530,10 @@ number of keystrokes.
 
 An equation should be given a number **_ONLY IF_**
 if it is referred to elsewhere in the paper.
-Use `\[ ... \]` to display an equation _without_ a number.
-You can use `\begin{eqnarray*} ... \end{eqnarray*}` (as I always
-used to do until the error of my ways was recently pointed out to me) to
-display an array of equations without numbers, but it is better (see
-\citealt{Madsen2006}) to use `\begin{align*} ... \end{align*}`.
+Use `$$ ... $$` to display an equation _without_ a number.
+You can use `\begin{align*} ... \end{align*}` for equations that span mulitple lines.
 You will need to have the package `amsmath` loaded in order
-to have access to the `align*} (and the `align`
+to have access to the `align*` (and the `align`
 and `split` --- see below) environments.  Examples:
 
 $$\Pr(K = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
@@ -758,8 +547,8 @@ P_3(x) &= (5x^3 - 3x)/2 \\
        & \ldots \\
 P_{n+1}(x) &= ((2n+1)xP_n(x) - nP_{n-1}(x))/(n+1)
 \end{align*}
-Use `\begin{equation} ... \end{equation}` to display an
-equation _with} a number.  You can use
+Use `$$ ... $$` followed by an equation id, e.g. `{#eq-example}` to display an
+equation _with_ a number.  You can use
 `\begin{eqnarray} ... \end{eqnarray}` to display an array of
 equations with numbers, but as for un-numbered arrays of equations it
 is better to use `\begin{align} ... \end{align}`.  Very often
@@ -782,10 +571,9 @@ $$ {#eq-gammaMM}
 
 Note how the label (i.e. "([-@eq-gammaMM])") is vertically
 centred with respect to the array of equations.  See the \LaTeX\
-source for the foregoing example in the file `protoType.tex`
+source for the foregoing example in the file `template.qmd`
 for guidance as to how all this is done.
 
-\noindent
 Displayed equations which _are_ numbered should be numbered
 consecutively (1), (2), \ldots, throughout the paper, including
 in the appendices if any.  (I.e. they should _not_ be numbered
@@ -795,7 +583,7 @@ you will get the appropriate style in your document.
 
 ## Figures and tables {#sec-figAndTab}
 
-% Multipanel figures in single figure files.
+
 Figures and tables often cause problems with the processing
 of papers.  Here are a few comments on the preparation and
 presentation of such displays, with an example of each type.
@@ -818,14 +606,7 @@ figures individually (rather than in a zip archive, this last
 now being acceptable to ScholarOne).
 
 It is much better to create a multi-panel figure in a single figure
-file, using appropriate graphics techniques.  In \textsf{R} (the
-recommended software for creating figures) this basically boils
-down to making use of the `\par(mfrow=c(n1,n2))` command
-before issuing the `plot()` commands that produce the
-graphical displays in each panel.  (In the foregoing, `n1`
-and `n2` represent the dimensions of the array of panels.
-In the example shown in @fig-ltdb, `n1` and
-`n2` are both equal to 2.)
+file, using appropriate graphics techniques.  
 
 ![Characteristics of the Lesser Tasmanian Drop Bear (farkling
 fraction, intracranial perspicacity and serendipity all in
@@ -835,7 +616,6 @@ in Tasmania. Plotted points represent the raw observed values;
 plotted lines represent non-parametric fits to the raw data.](ltdbFigure){#fig-ltdb}
 
 
-% Distinguishing line types and point types.
 Another important issue is making sure that line types and
 plotting symbols are _distinguishable_ in black and white.
 Figures appear in the print version of the Journal in black and
@@ -914,7 +694,7 @@ not be included in the paper.
 
 A facility provided by \LaTeX\ that tends to be underused in
 submissions to the Journal is automated cross-referencing as provided
-by the `\label{...}` and `\ref{...}` commands.  It is
+by the `@...` and `#` commands. See Quarto documentation for more on this! It is
 highly recommended that you learn to make use of these.  They make it
 much easier to keep cross-references correct when you revise a paper.
 It seems to me to be a good idea to give a label to each section and
@@ -932,19 +712,18 @@ _is_ referred to, then of course you should give it a label so
 that you _can_ refer to it easily.
 
 My personal practice is to label sections and subsections with labels
-of the form `sec-string`, e.g. "`\label{sec-intro}`".
+of the form `sec-string`, e.g. "`#sec-intro`".
 Similarly I form such labels for figures and tables
-as `fig:string` or `tab:string` (e.g.
-`\label{fig-ltdb}` or `\label{tbl-ltdb}`) and labels
-for equations as `eq:string` (e.g. `#eq-GNZ}`).
+as `fig-string` or `tbl-string` (e.g.
+`@fig-ltdb` or `@tbl-ltdb`) and labels
+for equations as `@eq-string` (e.g. `#eq-GNZ`).
 I find this practice convenient, but you are of course under no
 obligation to follow it.
 
 A practice that I have often seen and that I think should _not_
 be indulged in, is to use labels such as "`Figure1`".  There
 is _not necessarily_ any harm in this, but to a large extent
-such a practice defeats the purpose of using `\label{...}` and
-`\ref{...}`.  If you decide to change the order in which
+such a practice defeats the purpose of using dynamic labels.  If you decide to change the order in which
 figures appear in your paper, then the label "`Figure1`"
 will probably no longer be appropriate.  At best you will confuse
 yourself, and you run a serious risk of getting labels wrong.
@@ -961,9 +740,7 @@ be no other text in the header and no number).  If the document
 has more than one appendix these should be headed **Appendix**
 I, **Appendix II**, \ldots (i.e. there should be no
 other text in the headers, and numbering should be in upper case
-Roman numerals).  If you so desire you can place further (centred)
-headings underneath the "**Appendix**" headings by using e.g.
-`\section*{}`.
+Roman numerals).  
 
 Do _not_ use the 'native' \LaTeX\ command `\appendix`!.
 
@@ -1033,101 +810,6 @@ Windows\texttrademark, based on `MiKTeX`", "which adds
 the `TeXstudio` front end to MiKTeX".  Some authors may
 find it helpful.
 
-## Processing source files {#sec-procBib}
-
-One advantage of using specialised \LaTeX{} editors is the ease of
-processing ("compiling") source files, particularly in respect of
-handling \BibTeX{} files. Such processing can be accomplished with
-a single mouse click when `TeXstudio`, for example, is used.
-
-If you use a "general" text editor and process the source
-of your document by means of command line instructions, the procedure
-requires more steps.  To compile a document which uses the \BibTeX\
-protocols described in @sec-useBib, you need to run
-\LaTeX\ on the document, then run \BibTeX, then run \LaTeX\ again
-(possibly several times) until it stops complaining that labels
-may have changed.  Something like:
-
-```
-    latex magnumOpus
-    bibtex magnumOpus
-    latex magnumOpus
-    latex magnumOpus
-       .
-       .
-       .
-```
-
-(In the foregoing "`magnumOpus`" represents the _stem_
-of the name of the file "`magnumOpus.tex`" containing
-the source of your paper.  You may wish to use `pdflatex`
-rather than `latex` as your "compilation" command.)
-
-Whether you are using a general or a specialised editor, if you get
-errors or warnings from the `bibtex` command you must edit
-the `*.bib` file and fix whatever was causing the errors
-(things like commas being left out).  After fixing the problem,
-process the file again (if you are using a specialised editor)
-or run `bibtex` again (otherwise).  After the initial
-learning period, the processing procedure all goes very smoothly.
-Try it. It really does make life a lot easier and saves a lot of
-time and errors. Once you get used to it you'll never look back.
-
-# What to do with `anzsauth.cls` and `anzsj.bst`? {#sec-wheretoshove}
-
-I have been told that some authors don't know what to do with the
-files (to be found in `anzsauth.zip`) referred to in the
-title of this section.  In some sense, it's really very simple:  all
-you need to do is to place these files in a directory ("folder"
-if you want to _be_ that way!) where \LaTeX\ can find them.
-A very simple way to accomplish this is to place these files in
-the "working directory" that contains the source `*.tex`
-file for your paper.  This is a bit untidy, but.
-
-Doing things in a tidy organised way is a bit harder and is very
-much dependent on your operating system and your \TeX\ installation.
-The plethora of possibilities involved is what makes things "a
-bit harder".  (Puts me in mind of a line from a Joni Mitchell song:
-"\ldots the kind of crazy you get from having too much choice".)
-Because of this plethora of possibilities I cannot say very much
-here.  You are advised to seek local guidance.  Google\texttrademark\
-provides some information, but the instructions that you find
-are often a bit confusing and sometimes a bit contradictory.
-Getting "local advice" is best, if this is possible.
-
-On Linux systems you can place the files in appropriate
-sub-directories of the appropriate "`texmf`" directory.
-You may need to search around a bit to find where this latter
-directory lives.  If your \TeX\ installation is `texlive`,
-the relevant directory is actually called `texmf-dist`.
-Google\texttrademark\ may help you track things down.
-
-Another procedure is to put these files in a directory (or in
-directories) that you create under your home directory, and make
-use of the _environment_ variables `TEXINPUTS` and
-`BSTINPUTS` to tell \LaTeX\ where to find them.  This is
-what I do personally.  I won't try to go into the details.  It
-is possible that Google\texttrademark\ will help.
-
-On Mac OSX\texttrademark\ systems you should (apparently)
-put `anzsauth.cls` in a directory
-
-```
-    ~/Library/texmf/tex/latex/anzsauth
-```
-
-and put `anzsj.bst` in
-
-```
-    ~/Library/texmf/bibtex/bst/anzsj
-```
-where "`~`" means your home directory.  (Of course!)
-Take the foregoing advice with a grain of salt --- I don't use
-Mac OSX\texttrademark\ and I have not tested the advice that
-I have given.
-
-As regards Windows\texttrademark\ systems, I can't help you at
-all.  I don't _do_ Windows\texttrademark!
 
 # Concluding comments {#sec-concComm}
 
@@ -1147,7 +829,7 @@ attention to this requirement and give careful thought to the way
 in which you express yourself.  Doing so will, again, speed up the
 publication process for you.
 
-The accompanying file `protoType.tex` forms a template for
+The accompanying file `template.qmd` forms a template for
 \LaTeX\ source files for papers that are to be submitted to the
 Journal.  When preparing your own \LaTeX\ source file, you should
 imitate the structure of the template closely.  You may find that an
@@ -1181,7 +863,7 @@ use of this document class and of the template from the outset,
 if this is at all possible. Note that it _is_ necessary for
 the initial submission to be double spaced and to be line-numbered.
 These requirements are greatly facilitated by using the required
-document class.  See page \pageref{pg:dsln}.
+document class.  
 
 It is often the case that the Technical Editor will wish to make
 some minor (or sometimes major!) adjustments to the \LaTeX\ source
@@ -1219,32 +901,29 @@ This is another appendix. \lipsum[2]
 Zephod Beeblebrox
 \end{center}
 
-*This appendix was written by Zephod Beeblebrox, but he didn't
+
+\emph{This} appendix was written by Zephod Beeblebrox, but he didn't
 actually have anything to say. \lipsum[3]
+
 \end{Appendix}
 
-% Note that this usage of the uniqueAppendix environment is wrong
-% here, since there are actually multiple appendices.  But, hey,
-% what can you do?  (If you want to illustrate the use of both
-% environments in a single document.)
 
 \begin{uniqueAppendix}
 
-This is what you should get if you had only *one* appendix.
+This is what you should get if you had only \emph{one} appendix.
 Since this document has several appendices (four, actually) the
-use of the `uniqueAppendix` environment is completely
+use of the \texttt{uniqueAppendix} environment is completely
 inappropriate here.  It is included for illustrative purposes
 only.  I needed to illustrate syntax to be used both for multiple
 and unique appendices, but obviously one cannot have a single
 document in which there is a unique appendix and in which there are
 multiple appendices!  (That would violate the, uh, law of small
-numbers. ` :-) !)  Consequently I was forced to include an
-inappropriate example of the use of `uniqueAppendix`.
+numbers. \verb! :-) !)  Consequently I was forced to include an
+inappropriate example of the use of \texttt{uniqueAppendix}.
 
-I reiterate:  Use the `uniqueAppendix` environment if there is
-only one appendix to your document.  Use the `Appendix`
+I reiterate:  Use the \texttt{uniqueAppendix} environment if there is
+only one appendix to your document.  Use the \texttt{Appendix}
 environment if there are two or more appendices to your document.
-
 \end{uniqueAppendix}
 
 

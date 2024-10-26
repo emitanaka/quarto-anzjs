@@ -6,15 +6,18 @@ contributes:
   formats:
     pdf:
       documentclass: anzsauth
-      classoption: [times, doublespace]
+      classoption: [times]
+      double-space: true
       pdf-engine: pdflatex
       biblio-style: anzsj
       number-sections: true
       cite-method: natbib
+      line-numbers: true
       template-partials:
         - title.tex
         - before-title.tex
         - before-body.tex
+        - doc-class.tex
       format-resources:
         - anzsj.bst
         - anzsauth.cls

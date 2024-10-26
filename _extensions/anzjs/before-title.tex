@@ -1,17 +1,20 @@
 \usepackage{moreverb}
 \usepackage{url}
 \usepackage{grffile}
-\usepackage{lineno}
+
 \usepackage[UKenglish]{isodate}
-\usepackage{xstring}
-\def\getYear#1{\StrLeft{#1}{4}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % The year in the following may need to be updated!
-\def\volumeyear{\getYear{$date$}}
+\def\volumeyear{$date$}
 
 % The following command ("obviously") effects line numbering
 % of the document.
+
+$if(line-numbers)$
+\usepackage{lineno}
 \linenumbers
+$endif$
+
 
