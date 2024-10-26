@@ -2,9 +2,9 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-This is a [Quarto](https://quarto.org/), template for the *Australian
-and New Zealand Journal of Statistics* based on their LaTeX template in
-the [Author
+This is an unofficial [Quarto](https://quarto.org/) template for the
+*Australian and New Zealand Journal of Statistics* based on their LaTeX
+template in the [Author
 Guidelines](https://onlinelibrary.wiley.com/page/journal/1467842x/homepage/forauthors.html).
 The original zip file that contains the style guide and latex template
 is available
