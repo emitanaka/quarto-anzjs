@@ -2,7 +2,7 @@
 title: How I rose from the dead in my spare time and so can you
 subtitle: ANZJS Quarto Template
 format:
-  anzjs-pdf:
+  quarto-anzjs-pdf:
     keep-tex: true  
     shorttitle: How I rose from the dead
     double-space: true
