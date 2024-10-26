@@ -39,7 +39,9 @@ $endif$
 $for(affiliations/allbutlast)$
 $it.name$$sep$, 
 $endfor$
+$if(affiliations/allbutlast)$
  and 
+$endif$
 $for(affiliations/last)$
 $it.name$
 $endfor$
