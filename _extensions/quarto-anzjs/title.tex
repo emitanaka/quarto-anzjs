@@ -9,8 +9,7 @@ $else$
 $title$
 $endif$
 }{
-$for(authors/allbutlast)$\firstletters{$it.name.given/uppercase$}$it.name.family/uppercase$$sep$, $endfor$,
-$if(authors/allbutlast)$ AND $endif$
+$for(authors/allbutlast)$\firstletters{$it.name.given/uppercase$}$it.name.family/uppercase$$sep$, $endfor$$if(authors/allbutlast)$, AND $endif$
 $for(authors/last)$\firstletters{$it.name.given/uppercase$}$it.name.family/uppercase$$endfor$ 
 }
 
