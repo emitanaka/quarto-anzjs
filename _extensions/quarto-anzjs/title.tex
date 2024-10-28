@@ -60,7 +60,7 @@ $for(affiliations)$
 $endfor$
 $else$
 $for(affiliations)$
-$it.name$$sep$\break
+$if(it.department)$$it.department$, $endif$$it.name$$if(it.address)$, $it.address$$endif$$sep$\break
 $endfor$
 $endif$\\
 \hspace*{1ex} Email: $for(authors)$$if(authors.attributes.corresponding)$\texttt{$authors.email$}$endif$$sep$ $endfor$
