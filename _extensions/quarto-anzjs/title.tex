@@ -55,7 +55,7 @@ $endfor$
 
 \address{
 $for(affiliations)$
-$if(authors/allbutlast)$\addressnum{$it.number$} $endif$$if(it.department)$$it.department$, $endif$$it.name$$if(it.address)$, $it.address$$endif$$sep$\break
+$if(authors/allbutlast)$\addressnum{$it.number$} $endif$$if(it.department)$$it.department$, $endif$$it.name$$if(it.address)$, $it.address$$endif$$sep$\\
 $endfor$\\
 \hspace*{1ex} Email: $for(authors)$$if(authors.attributes.corresponding)$\texttt{$authors.email$}$endif$$sep$ $endfor$
 }
